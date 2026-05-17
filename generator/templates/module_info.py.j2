@@ -89,7 +89,7 @@ RETURN = r'''
 {% for prop in resource.properties %}
 {% if not prop.no_log %}
         {{ prop.name }}:
-            description: {{ prop.description }}
+            description: "{{ prop.description }}"
             type: {{ prop.type }}
 {% endif %}
 {% endfor %}
