@@ -11,6 +11,7 @@ list_action: DescribeLoadBalancers
 id_field: LoadBalancerId
 name_field: LoadBalancerName
 generate_info: true
+endpoint_template: "slb.{region}.aliyuncs.com"
 doc_url: "https://www.alibabacloud.com/help/en/slb/developer-reference/api-slb-2014-05-15-createloadbalancer"
 properties:
   load_balancer_name:

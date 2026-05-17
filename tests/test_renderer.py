@@ -8,11 +8,11 @@ import pytest
 from generator.parser import parse_file
 from generator.renderer import (
     ModuleRenderer,
-    _snake_to_camel,
-    _snake_to_pascal,
     _to_python,
     _to_python_list,
 )
+from generator.utils import snake_to_camel as _snake_to_camel
+from generator.utils import snake_to_pascal as _snake_to_pascal
 from tests.conftest import DEFINITIONS_DIR, TEMPLATES_DIR
 
 

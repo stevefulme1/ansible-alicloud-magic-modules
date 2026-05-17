@@ -1,0 +1,84 @@
+name: PolardbCluster
+module_name: alicloud_polardb_cluster
+description: "Manage PolarDB database clusters"
+product: polardb
+api_version: "2017-08-01"
+create_action: CreateDBCluster
+update_action: ModifyDBClusterDescription
+delete_action: DeleteDBCluster
+describe_action: DescribeDBClusters
+list_action: DescribeDBClusters
+id_field: DBClusterId
+name_field: DBClusterDescription
+generate_info: true
+endpoint_template: "polardb.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/polardb/developer-reference/api-polardb-2017-08-01-createdbcluster"
+properties:
+  db_type:
+    type: str
+    required: true
+    description: "The database engine type"
+    choices:
+      - MySQL
+      - PostgreSQL
+      - Oracle
+    api_field: DBType
+    updatable: false
+  db_version:
+    type: str
+    required: true
+    description: "The version of the database engine"
+    api_field: DBVersion
+    updatable: false
+  db_node_class:
+    type: str
+    required: true
+    description: "The node specification of the cluster"
+    api_field: DBNodeClass
+    updatable: false
+  pay_type:
+    type: str
+    required: false
+    description: "The billing method (Postpaid or Prepaid)"
+    api_field: PayType
+    updatable: false
+  db_cluster_description:
+    type: str
+    required: false
+    description: "The description of the PolarDB cluster"
+    api_field: DBClusterDescription
+    updatable: true
+  vpc_id:
+    type: str
+    required: false
+    description: "The ID of the VPC"
+    api_field: VPCId
+    updatable: false
+  vswitch_id:
+    type: str
+    required: false
+    description: "The ID of the vSwitch"
+    api_field: VSwitchId
+    updatable: false
+  zone_id:
+    type: str
+    required: false
+    description: "The zone ID"
+    api_field: ZoneId
+    updatable: false
+  tags:
+    type: list
+    required: false
+    description: "Tags for the cluster as a list of Key/Value dicts"
+    api_field: Tag
+    elements: dict
+    updatable: true
+    suboptions:
+      key:
+        type: str
+        required: true
+        description: "Tag key"
+      value:
+        type: str
+        required: false
+        description: "Tag value"

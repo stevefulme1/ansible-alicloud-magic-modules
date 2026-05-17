@@ -1,0 +1,34 @@
+name: SlsProject
+module_name: alicloud_sls_project
+description: "Manage Log Service (SLS) projects"
+product: Sls
+api_version: "2020-12-30"
+create_action: CreateProject
+update_action: UpdateProject
+delete_action: DeleteProject
+describe_action: ListProject
+list_action: ListProject
+id_field: ProjectName
+name_field: ProjectName
+generate_info: true
+endpoint_template: "sls.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/sls/developer-reference/api-sls-2020-12-30-createproject"
+properties:
+  project_name:
+    type: str
+    required: true
+    description: "The name of the SLS project"
+    api_field: ProjectName
+    updatable: false
+  description:
+    type: str
+    required: false
+    description: "The description of the project"
+    api_field: Description
+    updatable: true
+  resource_group_id:
+    type: str
+    required: false
+    description: "The ID of the resource group"
+    api_field: ResourceGroupId
+    updatable: false

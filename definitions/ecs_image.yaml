@@ -11,6 +11,7 @@ list_action: DescribeImages
 id_field: ImageId
 name_field: ImageName
 generate_info: true
+endpoint_template: "ecs.{region}.aliyuncs.com"
 doc_url: "https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-createimage"
 properties:
   image_name:

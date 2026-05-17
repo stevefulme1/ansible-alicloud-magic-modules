@@ -11,6 +11,7 @@ list_action: DescribeNatGateways
 id_field: NatGatewayId
 name_field: NatGatewayName
 generate_info: true
+endpoint_template: "vpc.{region}.aliyuncs.com"
 doc_url: "https://www.alibabacloud.com/help/en/vpc/developer-reference/api-vpc-2016-04-28-createnatgateway"
 properties:
   nat_gateway_name:

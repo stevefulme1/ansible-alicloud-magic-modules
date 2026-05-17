@@ -1,0 +1,58 @@
+name: FcService
+module_name: alicloud_fc_service
+description: "Manage Function Compute services"
+product: FC
+api_version: "2023-03-30"
+create_action: CreateService
+update_action: UpdateService
+delete_action: DeleteService
+describe_action: ListServices
+list_action: ListServices
+id_field: ServiceName
+name_field: ServiceName
+generate_info: true
+endpoint_template: "fc.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/fc/developer-reference/api-fc-2023-03-30-createservice"
+properties:
+  service_name:
+    type: str
+    required: true
+    description: "The name of the Function Compute service"
+    api_field: ServiceName
+    updatable: false
+  description:
+    type: str
+    required: false
+    description: "The description of the service"
+    api_field: Description
+    updatable: true
+  role:
+    type: str
+    required: false
+    description: "The RAM role ARN for the service"
+    api_field: Role
+    updatable: true
+  log_config:
+    type: dict
+    required: false
+    description: "The log configuration for the service"
+    api_field: LogConfig
+    updatable: true
+  vpc_config:
+    type: dict
+    required: false
+    description: "The VPC configuration for the service"
+    api_field: VpcConfig
+    updatable: true
+  nas_config:
+    type: dict
+    required: false
+    description: "The NAS file system configuration for the service"
+    api_field: NasConfig
+    updatable: true
+  internet_access:
+    type: bool
+    required: false
+    description: "Whether the service can access the Internet"
+    api_field: InternetAccess
+    updatable: true

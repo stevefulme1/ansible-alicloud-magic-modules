@@ -5,16 +5,7 @@ from pathlib import Path
 import jinja2
 
 from .parser import ResourceDefinition
-from .utils import snake_to_pascal
-
-
-def _snake_to_camel(value: str) -> str:
-    parts = value.split("_")
-    return parts[0] + "".join(w.capitalize() for w in parts[1:])
-
-
-def _snake_to_pascal(value: str) -> str:
-    return snake_to_pascal(value)
+from .utils import snake_to_pascal, pascal_to_snake, snake_to_camel
 
 
 def _to_python(value: object) -> str:
@@ -22,14 +13,13 @@ def _to_python(value: object) -> str:
         return "None"
     if isinstance(value, bool):
         return "True" if value else "False"
-    if isinstance(value, str):
-        return repr(value)
     return repr(value)
 
 
 def _to_python_list(value: list, indent: int = 16) -> str:
     single = repr(value)
-    if indent + len("choices=") + len(single) + 1 <= 159:
+    total_width = indent + len(single) + 1
+    if total_width <= 159:
         return single
     pad = " " * indent
     lines = ["["]
@@ -54,8 +44,9 @@ class ModuleRenderer:
             trim_blocks=True,
             lstrip_blocks=True,
         )
-        self.env.filters["snake_to_camel"] = _snake_to_camel
-        self.env.filters["snake_to_pascal"] = _snake_to_pascal
+        self.env.filters["snake_to_camel"] = snake_to_camel
+        self.env.filters["snake_to_pascal"] = snake_to_pascal
+        self.env.filters["pascal_to_snake"] = pascal_to_snake
         self.env.filters["ansible_type_str"] = _ansible_type_str
         self.env.filters["to_python"] = _to_python
         self.env.filters["to_python_list"] = _to_python_list

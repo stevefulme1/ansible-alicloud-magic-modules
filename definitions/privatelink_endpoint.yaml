@@ -1,0 +1,53 @@
+name: PrivatelinkEndpoint
+module_name: alicloud_privatelink_endpoint
+description: "Manage PrivateLink VPC endpoints"
+product: Privatelink
+api_version: "2020-04-15"
+create_action: CreateVpcEndpoint
+update_action: UpdateVpcEndpointAttribute
+delete_action: DeleteVpcEndpoints
+describe_action: ListVpcEndpoints
+list_action: ListVpcEndpoints
+id_field: EndpointId
+name_field: EndpointName
+generate_info: true
+endpoint_template: "privatelink.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/privatelink/developer-reference/api-privatelink-2020-04-15-createvpcendpoint"
+properties:
+  endpoint_name:
+    type: str
+    required: false
+    description: "The name of the VPC endpoint"
+    api_field: EndpointName
+    updatable: true
+  service_id:
+    type: str
+    required: true
+    description: "The ID of the endpoint service to connect to"
+    api_field: ServiceId
+    updatable: false
+  vpc_id:
+    type: str
+    required: true
+    description: "The ID of the VPC"
+    api_field: VpcId
+    updatable: false
+  security_group_ids:
+    type: list
+    required: true
+    description: "The list of security group IDs for the endpoint"
+    api_field: SecurityGroupId
+    elements: str
+    updatable: true
+  endpoint_description:
+    type: str
+    required: false
+    description: "The description of the VPC endpoint"
+    api_field: EndpointDescription
+    updatable: true
+  service_name:
+    type: str
+    required: false
+    description: "The name of the endpoint service"
+    api_field: ServiceName
+    updatable: false

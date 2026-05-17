@@ -1,0 +1,34 @@
+name: RamGroup
+module_name: alicloud_ram_group
+description: "Manage RAM user groups"
+product: Ram
+api_version: "2015-05-01"
+create_action: CreateGroup
+update_action: UpdateGroup
+delete_action: DeleteGroup
+describe_action: ListGroups
+list_action: ListGroups
+id_field: GroupName
+name_field: GroupName
+generate_info: true
+endpoint_template: "ram.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/ram/developer-reference/api-ram-2015-05-01-creategroup"
+properties:
+  group_name:
+    type: str
+    required: true
+    description: "The name of the RAM group"
+    api_field: GroupName
+    updatable: false
+  display_name:
+    type: str
+    required: false
+    description: "The display name of the RAM group"
+    api_field: DisplayName
+    updatable: true
+  comments:
+    type: str
+    required: false
+    description: "The comments or description for the RAM group"
+    api_field: Comments
+    updatable: true

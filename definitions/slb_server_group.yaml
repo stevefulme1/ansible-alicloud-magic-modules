@@ -1,0 +1,48 @@
+name: SlbServerGroup
+module_name: alicloud_slb_server_group
+description: "Manage SLB VServer groups"
+product: Slb
+api_version: "2014-05-15"
+create_action: CreateVServerGroup
+update_action: SetVServerGroupAttribute
+delete_action: DeleteVServerGroup
+describe_action: DescribeVServerGroups
+list_action: DescribeVServerGroups
+id_field: VServerGroupId
+name_field: VServerGroupName
+generate_info: true
+endpoint_template: "slb.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/slb/developer-reference/api-slb-2014-05-15-createvservergroup"
+properties:
+  vserver_group_name:
+    type: str
+    required: true
+    description: "The name of the VServer group"
+    api_field: VServerGroupName
+    updatable: true
+  load_balancer_id:
+    type: str
+    required: true
+    description: "The ID of the SLB instance"
+    api_field: LoadBalancerId
+    updatable: false
+  backend_servers:
+    type: list
+    required: false
+    description: "The list of backend servers in the VServer group"
+    api_field: BackendServers
+    elements: dict
+    updatable: true
+    suboptions:
+      server_id:
+        type: str
+        required: true
+        description: "The ID of the backend server (ECS instance)"
+      port:
+        type: int
+        required: true
+        description: "The port used by the backend server"
+      weight:
+        type: int
+        required: false
+        description: "The weight of the backend server"

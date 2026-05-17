@@ -27,10 +27,29 @@ properties:
     updatable: false
   sources:
     type: list
+    elements: dict
     required: true
     description: "The list of origin sources, each containing content, type, port, and priority"
     api_field: Sources
     updatable: true
+    suboptions:
+      content:
+        type: str
+        required: true
+        description: "Origin server address"
+      type:
+        type: str
+        required: true
+        description: "Origin type"
+        choices: [ipaddr, domain, oss, fc_domain]
+      port:
+        type: int
+        description: "Port number"
+        default: 80
+      priority:
+        type: int
+        description: "Priority weight"
+        default: 20
   scope:
     type: str
     required: false

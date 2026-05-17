@@ -1,0 +1,78 @@
+name: ConfigRule
+module_name: alicloud_config_rule
+description: "Manage Cloud Config compliance rules"
+product: Config
+api_version: "2020-09-07"
+create_action: CreateConfigRule
+update_action: UpdateConfigRule
+delete_action: DeleteConfigRules
+describe_action: ListConfigRules
+list_action: ListConfigRules
+id_field: ConfigRuleId
+name_field: ConfigRuleName
+generate_info: true
+endpoint_template: "config.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/cloud-config/developer-reference/api-config-2020-09-07-createconfigrule"
+properties:
+  config_rule_name:
+    type: str
+    required: true
+    description: "The name of the config rule"
+    api_field: ConfigRuleName
+    updatable: true
+  source_identifier:
+    type: str
+    required: true
+    description: "The identifier of the managed rule or custom function"
+    api_field: SourceIdentifier
+    updatable: false
+  source_owner:
+    type: str
+    required: true
+    description: "The owner of the rule source"
+    choices:
+      - ALIYUN
+      - CUSTOM_FC
+    api_field: SourceOwner
+    updatable: false
+  input_parameters:
+    type: dict
+    required: false
+    description: "The input parameters for the rule as key-value pairs"
+    api_field: InputParameters
+    updatable: true
+  risk_level:
+    type: int
+    required: true
+    description: "The risk level (1 high, 2 medium, 3 low)"
+    choices:
+      - 1
+      - 2
+      - 3
+    api_field: RiskLevel
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the config rule"
+    api_field: Description
+    updatable: true
+  resource_types_scope:
+    type: list
+    required: true
+    description: "The list of resource types the rule evaluates"
+    api_field: ResourceTypesScope
+    elements: str
+    updatable: true
+  tag_key_scope:
+    type: str
+    required: false
+    description: "The tag key scope for filtering resources"
+    api_field: TagKeyScope
+    updatable: true
+  tag_value_scope:
+    type: str
+    required: false
+    description: "The tag value scope for filtering resources"
+    api_field: TagValueScope
+    updatable: true

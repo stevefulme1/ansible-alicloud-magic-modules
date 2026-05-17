@@ -3,7 +3,8 @@ module_name: alicloud_elasticsearch_instance
 description: "Manage Elasticsearch instances"
 product: Elasticsearch
 api_version: "2017-06-13"
-create_action: createInstance
+create_action: CreateInstance
+api_style: ROA
 update_action: UpdateInstance
 delete_action: DeleteInstance
 list_action: ListInstance

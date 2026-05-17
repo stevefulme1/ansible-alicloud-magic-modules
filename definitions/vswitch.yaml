@@ -11,6 +11,7 @@ list_action: DescribeVSwitches
 id_field: VSwitchId
 name_field: VSwitchName
 generate_info: true
+endpoint_template: "vpc.{region}.aliyuncs.com"
 doc_url: "https://www.alibabacloud.com/help/en/vpc/developer-reference/api-vpc-2016-04-28-createvswitch"
 properties:
   vswitch_name:

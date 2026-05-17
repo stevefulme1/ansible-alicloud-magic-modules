@@ -11,6 +11,7 @@ list_action: DescribeDBInstances
 id_field: DBInstanceId
 name_field: DBInstanceDescription
 generate_info: true
+endpoint_template: "rds.{region}.aliyuncs.com"
 doc_url: "https://www.alibabacloud.com/help/en/rds/developer-reference/api-rds-2014-08-15-createdbinstance"
 properties:
   engine:

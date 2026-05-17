@@ -45,6 +45,7 @@ properties:
     updatable: true
   schedule_resource_group_list:
     type: list
+    elements: str
     required: false
     description: "The list of scheduling resource groups for the project"
     api_field: ScheduleResourceGroupList

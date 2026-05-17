@@ -1,0 +1,62 @@
+name: DnatEntry
+module_name: alicloud_dnat_entry
+description: "Manage NAT Gateway DNAT (forward) entries"
+product: Vpc
+api_version: "2016-04-28"
+create_action: CreateForwardEntry
+update_action: ModifyForwardEntry
+delete_action: DeleteForwardEntry
+describe_action: DescribeForwardTableEntries
+list_action: DescribeForwardTableEntries
+id_field: ForwardEntryId
+name_field: ForwardEntryName
+generate_info: true
+endpoint_template: "vpc.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/vpc/developer-reference/api-vpc-2016-04-28-createforwardentry"
+properties:
+  forward_table_id:
+    type: str
+    required: true
+    description: "The ID of the DNAT (forward) table"
+    api_field: ForwardTableId
+    updatable: false
+  external_ip:
+    type: str
+    required: true
+    description: "The external (public) IP address"
+    api_field: ExternalIp
+    updatable: true
+  external_port:
+    type: str
+    required: true
+    description: "The external port or port range"
+    api_field: ExternalPort
+    updatable: true
+  internal_ip:
+    type: str
+    required: true
+    description: "The internal (private) IP address"
+    api_field: InternalIp
+    updatable: true
+  internal_port:
+    type: str
+    required: true
+    description: "The internal port or port range"
+    api_field: InternalPort
+    updatable: true
+  ip_protocol:
+    type: str
+    required: true
+    description: "The protocol type for the DNAT entry"
+    choices:
+      - TCP
+      - UDP
+      - Any
+    api_field: IpProtocol
+    updatable: true
+  forward_entry_name:
+    type: str
+    required: false
+    description: "The name of the DNAT forward entry"
+    api_field: ForwardEntryName
+    updatable: true

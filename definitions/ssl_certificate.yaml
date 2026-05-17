@@ -1,0 +1,40 @@
+name: SslCertificate
+module_name: alicloud_ssl_certificate
+description: "Manage SSL certificates"
+product: cas
+api_version: "2020-04-07"
+create_action: UploadUserCertificate
+delete_action: DeleteUserCertificate
+describe_action: ListUserCertificateOrder
+list_action: ListUserCertificateOrder
+id_field: CertId
+name_field: CertName
+generate_info: true
+endpoint_template: "cas.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/ssl-certificate/developer-reference/api-cas-2020-04-07-uploadusercertificate"
+properties:
+  cert_name:
+    type: str
+    required: true
+    description: "The name of the SSL certificate"
+    api_field: Name
+    updatable: false
+  cert:
+    type: str
+    required: true
+    description: "The PEM-encoded certificate body"
+    api_field: Cert
+    updatable: false
+  key:
+    type: str
+    required: true
+    description: "The PEM-encoded private key"
+    api_field: Key
+    updatable: false
+    no_log: true
+  resource_group_id:
+    type: str
+    required: false
+    description: "The ID of the resource group"
+    api_field: ResourceGroupId
+    updatable: false

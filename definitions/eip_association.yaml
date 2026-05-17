@@ -1,0 +1,37 @@
+name: EipAssociation
+module_name: alicloud_eip_association
+description: "Manage EIP address associations"
+product: Vpc
+api_version: "2016-04-28"
+create_action: AssociateEipAddress
+delete_action: UnassociateEipAddress
+describe_action: DescribeEipAddresses
+list_action: DescribeEipAddresses
+generate_info: true
+endpoint_template: "vpc.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/vpc/developer-reference/api-vpc-2016-04-28-associateeipaddress"
+properties:
+  allocation_id:
+    type: str
+    required: true
+    description: "The ID of the EIP to associate"
+    api_field: AllocationId
+    updatable: false
+  instance_id:
+    type: str
+    required: true
+    description: "The ID of the instance to associate with"
+    api_field: InstanceId
+    updatable: false
+  instance_type:
+    type: str
+    required: false
+    description: "The type of the instance to associate with"
+    choices:
+      - EcsInstance
+      - SlbInstance
+      - Nat
+      - HaVip
+      - NetworkInterface
+    api_field: InstanceType
+    updatable: false

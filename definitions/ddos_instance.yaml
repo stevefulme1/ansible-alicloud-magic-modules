@@ -1,0 +1,54 @@
+name: DdosInstance
+module_name: alicloud_ddos_instance
+description: "Manage Anti-DDoS instances"
+product: ddoscoo
+api_version: "2020-01-01"
+create_action: CreateInstance
+update_action: ModifyInstance
+delete_action: ReleaseInstance
+describe_action: DescribeInstances
+list_action: DescribeInstances
+id_field: InstanceId
+generate_info: true
+endpoint_template: "ddoscoo.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/anti-ddos/developer-reference/api-ddoscoo-2020-01-01-createinstance"
+properties:
+  product_type:
+    type: str
+    required: false
+    description: "The product type of the Anti-DDoS instance"
+    choices:
+      - ddoscoo
+      - ddoscoo_intl
+    api_field: ProductType
+    updatable: false
+  base_bandwidth:
+    type: int
+    required: false
+    description: "The base protection bandwidth in Gbps"
+    api_field: BaseBandwidth
+    updatable: false
+  bandwidth:
+    type: int
+    required: false
+    description: "The burstable protection bandwidth in Gbps"
+    api_field: Bandwidth
+    updatable: true
+  service_bandwidth:
+    type: int
+    required: false
+    description: "The clean traffic bandwidth in Mbps"
+    api_field: ServiceBandwidth
+    updatable: true
+  port_count:
+    type: int
+    required: false
+    description: "The number of forwarding ports"
+    api_field: PortCount
+    updatable: true
+  domain_count:
+    type: int
+    required: false
+    description: "The number of domain names"
+    api_field: DomainCount
+    updatable: true

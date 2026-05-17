@@ -1,0 +1,37 @@
+name: OtsInstance
+module_name: alicloud_ots_instance
+description: "Manage Table Store (OTS) instances"
+product: Ots
+api_version: "2016-06-20"
+create_action: InsertInstance
+update_action: UpdateInstance
+delete_action: DeleteInstance
+describe_action: ListInstance
+list_action: ListInstance
+id_field: InstanceName
+name_field: InstanceName
+generate_info: true
+endpoint_template: "ots.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/tablestore/developer-reference/api-ots-2016-06-20-insertinstance"
+properties:
+  instance_name:
+    type: str
+    required: true
+    description: "The name of the Table Store instance"
+    api_field: InstanceName
+    updatable: false
+  instance_description:
+    type: str
+    required: false
+    description: "The description of the instance"
+    api_field: Description
+    updatable: true
+  cluster_type:
+    type: str
+    required: false
+    description: "The storage type of the instance"
+    choices:
+      - SSD
+      - HYBRID
+    api_field: ClusterType
+    updatable: false

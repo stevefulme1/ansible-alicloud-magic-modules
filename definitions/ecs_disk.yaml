@@ -11,6 +11,7 @@ list_action: DescribeDisks
 id_field: DiskId
 name_field: DiskName
 generate_info: true
+endpoint_template: "ecs.{region}.aliyuncs.com"
 doc_url: "https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-createdisk"
 properties:
   disk_name:
@@ -24,12 +25,12 @@ properties:
     required: false
     description: "The size of the disk in GiB"
     api_field: Size
-    updatable: false
+    updatable: true
   category:
     type: str
     required: false
     description: "The category of the disk"
-    api_field: DiskCategory
+    api_field: Category
     updatable: false
     choices:
       - cloud

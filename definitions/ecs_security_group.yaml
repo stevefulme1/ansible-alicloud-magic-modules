@@ -11,6 +11,7 @@ list_action: DescribeSecurityGroups
 id_field: SecurityGroupId
 name_field: SecurityGroupName
 generate_info: true
+endpoint_template: "ecs.{region}.aliyuncs.com"
 doc_url: "https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-createsecuritygroup"
 properties:
   security_group_name:

@@ -1,0 +1,66 @@
+name: SlbListener
+module_name: alicloud_slb_listener
+description: "Manage SLB (Server Load Balancer) listeners"
+product: Slb
+api_version: "2014-05-15"
+create_action: CreateLoadBalancerTCPListener
+delete_action: DeleteLoadBalancerListener
+describe_action: DescribeLoadBalancerTCPListenerAttribute
+generate_info: true
+endpoint_template: "slb.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/slb/developer-reference/api-slb-2014-05-15-createloadbalancertcplistener"
+properties:
+  load_balancer_id:
+    type: str
+    required: true
+    description: "The ID of the SLB instance"
+    api_field: LoadBalancerId
+    updatable: false
+  listener_port:
+    type: int
+    required: true
+    description: "The frontend port used by the listener"
+    api_field: ListenerPort
+    updatable: false
+  backend_server_port:
+    type: int
+    required: true
+    description: "The backend port used by the listener"
+    api_field: BackendServerPort
+    updatable: false
+  bandwidth:
+    type: int
+    required: true
+    description: "The peak bandwidth of the listener in Mbps"
+    api_field: Bandwidth
+    updatable: true
+  scheduler:
+    type: str
+    required: false
+    description: "The scheduling algorithm"
+    choices:
+      - wrr
+      - wlc
+      - rr
+    api_field: Scheduler
+    updatable: true
+  health_check:
+    type: str
+    required: false
+    description: "Whether health check is enabled (on or off)"
+    choices:
+      - "on"
+      - "off"
+    api_field: HealthCheck
+    updatable: true
+  protocol:
+    type: str
+    required: false
+    description: "The listener protocol"
+    choices:
+      - tcp
+      - udp
+      - http
+      - https
+    api_field: Protocol
+    updatable: false

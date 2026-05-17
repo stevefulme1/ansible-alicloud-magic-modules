@@ -1,0 +1,58 @@
+name: SlsLogstore
+module_name: alicloud_sls_logstore
+description: "Manage Log Service (SLS) logstores"
+product: Sls
+api_version: "2020-12-30"
+create_action: CreateLogStore
+update_action: UpdateLogStore
+delete_action: DeleteLogStore
+describe_action: ListLogStores
+list_action: ListLogStores
+id_field: LogstoreName
+name_field: LogstoreName
+generate_info: true
+endpoint_template: "sls.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/sls/developer-reference/api-sls-2020-12-30-createlogstore"
+properties:
+  project_name:
+    type: str
+    required: true
+    description: "The name of the SLS project that contains the logstore"
+    api_field: ProjectName
+    updatable: false
+  logstore_name:
+    type: str
+    required: true
+    description: "The name of the logstore"
+    api_field: LogstoreName
+    updatable: false
+  ttl:
+    type: int
+    required: false
+    description: "The data retention period in days"
+    api_field: TTL
+    updatable: true
+  shard_count:
+    type: int
+    required: false
+    description: "The number of shards"
+    api_field: ShardCount
+    updatable: false
+  auto_split:
+    type: bool
+    required: false
+    description: "Whether to enable automatic shard splitting"
+    api_field: AutoSplit
+    updatable: true
+  max_split_shard:
+    type: int
+    required: false
+    description: "The maximum number of shards for auto-split"
+    api_field: MaxSplitShard
+    updatable: true
+  enable_tracking:
+    type: bool
+    required: false
+    description: "Whether to enable web tracking"
+    api_field: EnableTracking
+    updatable: true

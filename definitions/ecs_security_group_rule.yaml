@@ -9,6 +9,7 @@ describe_action: DescribeSecurityGroupAttribute
 list_action: DescribeSecurityGroupAttribute
 id_field: SecurityGroupRuleId
 generate_info: true
+endpoint_template: "ecs.{region}.aliyuncs.com"
 doc_url: "https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-authorizesecuritygroup"
 properties:
   security_group_id:

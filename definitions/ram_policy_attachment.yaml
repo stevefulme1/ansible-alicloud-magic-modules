@@ -1,0 +1,55 @@
+name: RamPolicyAttachment
+module_name: alicloud_ram_policy_attachment
+description: "Manage RAM policy attachments to users, roles, and groups"
+product: Ram
+api_version: "2015-05-01"
+create_action: AttachPolicyToUser
+delete_action: DetachPolicyFromUser
+describe_action: ListPoliciesForUser
+list_action: ListPoliciesForUser
+generate_info: true
+endpoint_template: "ram.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/ram/developer-reference/api-ram-2015-05-01-attachpolicytouser"
+properties:
+  policy_name:
+    type: str
+    required: true
+    description: "The name of the RAM policy"
+    api_field: PolicyName
+    updatable: false
+  policy_type:
+    type: str
+    required: true
+    description: "The type of the RAM policy"
+    choices:
+      - System
+      - Custom
+    api_field: PolicyType
+    updatable: false
+  user_name:
+    type: str
+    required: false
+    description: "The name of the RAM user to attach the policy to"
+    api_field: UserName
+    updatable: false
+  attach_type:
+    type: str
+    required: false
+    description: "The type of entity to attach the policy to"
+    choices:
+      - user
+      - role
+      - group
+    updatable: false
+  role_name:
+    type: str
+    required: false
+    description: "The name of the RAM role to attach the policy to"
+    api_field: RoleName
+    updatable: false
+  group_name:
+    type: str
+    required: false
+    description: "The name of the RAM group to attach the policy to"
+    api_field: GroupName
+    updatable: false

@@ -51,6 +51,9 @@ class ResourceDefinition:
     doc_url: str = ""
     properties: list[PropertyDef] = field(default_factory=list)
     endpoint_template: str = ""
+    api_style: str = "RPC"
+    wait: bool = False
+    wait_timeout: int = 300
 
 
 _REQUIRED_TOP_LEVEL = {"name", "module_name", "product", "api_version"}
@@ -203,4 +206,7 @@ def parse_file(path: str | Path) -> ResourceDefinition:
         doc_url=data.get("doc_url", ""),
         properties=properties,
         endpoint_template=data.get("endpoint_template", ""),
+        api_style=data.get("api_style", "RPC"),
+        wait=data.get("wait", False),
+        wait_timeout=data.get("wait_timeout", 300),
     )

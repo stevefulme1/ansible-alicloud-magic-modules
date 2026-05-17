@@ -1,0 +1,50 @@
+name: VpcRouteTable
+module_name: alicloud_vpc_route_table
+description: "Manage VPC route tables"
+product: Vpc
+api_version: "2016-04-28"
+create_action: CreateRouteTable
+update_action: ModifyRouteTableAttributes
+delete_action: DeleteRouteTable
+describe_action: DescribeRouteTables
+list_action: DescribeRouteTables
+id_field: RouteTableId
+name_field: RouteTableName
+generate_info: true
+endpoint_template: "vpc.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/vpc/developer-reference/api-vpc-2016-04-28-createroutetable"
+properties:
+  route_table_name:
+    type: str
+    required: false
+    description: "The name of the route table"
+    api_field: RouteTableName
+    updatable: true
+  vpc_id:
+    type: str
+    required: true
+    description: "The ID of the VPC"
+    api_field: VpcId
+    updatable: false
+  description:
+    type: str
+    required: false
+    description: "The description of the route table"
+    api_field: Description
+    updatable: true
+  tags:
+    type: list
+    required: false
+    description: "Tags for the route table as a list of Key/Value dicts"
+    api_field: Tag
+    elements: dict
+    updatable: true
+    suboptions:
+      key:
+        type: str
+        required: true
+        description: "Tag key"
+      value:
+        type: str
+        required: false
+        description: "Tag value"

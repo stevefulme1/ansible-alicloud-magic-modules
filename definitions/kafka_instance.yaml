@@ -1,0 +1,98 @@
+name: KafkaInstance
+module_name: alicloud_kafka_instance
+description: "Manage Kafka (alikafka) instances"
+product: alikafka
+api_version: "2019-09-16"
+create_action: CreatePrePayOrder
+update_action: ModifyInstanceName
+delete_action: ReleaseInstance
+describe_action: GetInstanceList
+list_action: GetInstanceList
+id_field: InstanceId
+name_field: InstanceName
+generate_info: true
+endpoint_template: "alikafka.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/message-queue-for-apache-kafka/developer-reference/api-alikafka-2019-09-16-createprepayorder"
+properties:
+  instance_name:
+    type: str
+    required: false
+    description: "The name of the Kafka instance"
+    api_field: Name
+    updatable: true
+  deploy_type:
+    type: int
+    required: true
+    description: "The deployment type (4 for VPC, 5 for public)"
+    choices:
+      - 4
+      - 5
+    api_field: DeployType
+    updatable: false
+  disk_type:
+    type: int
+    required: true
+    description: "The disk type (0 for SSD, 1 for efficient cloud disk)"
+    choices:
+      - 0
+      - 1
+    api_field: DiskType
+    updatable: false
+  disk_size:
+    type: int
+    required: true
+    description: "The disk size in GB"
+    api_field: DiskSize
+    updatable: false
+  topic_quota:
+    type: int
+    required: true
+    description: "The maximum number of topics"
+    api_field: TopicQuota
+    updatable: false
+  io_max:
+    type: int
+    required: false
+    description: "The peak traffic in MB/s"
+    api_field: IoMax
+    updatable: false
+  vpc_id:
+    type: str
+    required: false
+    description: "The ID of the VPC"
+    api_field: VpcId
+    updatable: false
+  vswitch_id:
+    type: str
+    required: false
+    description: "The ID of the vSwitch"
+    api_field: VSwitchId
+    updatable: false
+  zone_id:
+    type: str
+    required: false
+    description: "The zone ID"
+    api_field: ZoneId
+    updatable: false
+  spec_type:
+    type: str
+    required: false
+    description: "The specification type of the instance"
+    api_field: SpecType
+    updatable: false
+  tags:
+    type: list
+    required: false
+    description: "Tags for the instance as a list of Key/Value dicts"
+    api_field: Tag
+    elements: dict
+    updatable: true
+    suboptions:
+      key:
+        type: str
+        required: true
+        description: "Tag key"
+      value:
+        type: str
+        required: false
+        description: "Tag value"

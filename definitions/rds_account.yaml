@@ -9,7 +9,9 @@ delete_action: DeleteAccount
 describe_action: DescribeAccounts
 list_action: DescribeAccounts
 name_field: AccountName
+id_field: AccountName
 generate_info: true
+endpoint_template: "rds.{region}.aliyuncs.com"
 doc_url: "https://www.alibabacloud.com/help/en/rds/developer-reference/api-rds-2014-08-15-createaccount"
 properties:
   db_instance_id:

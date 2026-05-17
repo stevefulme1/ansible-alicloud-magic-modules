@@ -11,6 +11,7 @@ list_action: DescribeInstances
 id_field: InstanceId
 name_field: InstanceName
 generate_info: true
+endpoint_template: "ecs.{region}.aliyuncs.com"
 doc_url: "https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-runinstances"
 properties:
   instance_name:
@@ -100,6 +101,16 @@ properties:
     description: "The hostname of the instance"
     api_field: HostName
     updatable: true
+  internet_max_bandwidth_out:
+    type: int
+    description: "Maximum outbound internet bandwidth in Mbps"
+    api_field: InternetMaxBandwidthOut
+    updatable: false
+  user_data:
+    type: str
+    description: "Base64-encoded user data for cloud-init"
+    api_field: UserData
+    updatable: false
   tags:
     type: list
     required: false

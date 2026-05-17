@@ -10,6 +10,7 @@ describe_action: GetBucketInfo
 list_action: ListBuckets
 id_field: BucketName
 name_field: BucketName
+api_style: ROA
 endpoint_template: "oss-{region}.aliyuncs.com"
 generate_info: true
 doc_url: "https://www.alibabacloud.com/help/en/oss/developer-reference/api-oss-2019-05-17-putbucket"

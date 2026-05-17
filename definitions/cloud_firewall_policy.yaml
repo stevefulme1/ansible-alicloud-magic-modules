@@ -1,0 +1,108 @@
+name: CloudFirewallPolicy
+module_name: alicloud_cloud_firewall_policy
+description: "Manage Cloud Firewall access control policies"
+product: Cloudfw
+api_version: "2017-12-07"
+create_action: AddControlPolicy
+update_action: ModifyControlPolicy
+delete_action: DeleteControlPolicy
+describe_action: DescribeControlPolicy
+list_action: DescribeControlPolicy
+id_field: AclUuid
+generate_info: true
+endpoint_template: "cloudfw.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/cloud-firewall/developer-reference/api-cloudfw-2017-12-07-addcontrolpolicy"
+properties:
+  policy_name:
+    type: str
+    required: false
+    description: "The name of the access control policy"
+    api_field: PolicyName
+    updatable: true
+  direction:
+    type: str
+    required: true
+    description: "The direction of traffic for the policy"
+    choices:
+      - in
+      - out
+    api_field: Direction
+    updatable: false
+  acl_action:
+    type: str
+    required: true
+    description: "The action to take on matched traffic"
+    choices:
+      - accept
+      - drop
+      - log
+    api_field: AclAction
+    updatable: true
+  source:
+    type: str
+    required: true
+    description: "The source address in the policy"
+    api_field: Source
+    updatable: true
+  source_type:
+    type: str
+    required: true
+    description: "The type of source address"
+    choices:
+      - net
+      - group
+      - location
+    api_field: SourceType
+    updatable: true
+  destination:
+    type: str
+    required: true
+    description: "The destination address in the policy"
+    api_field: Destination
+    updatable: true
+  destination_type:
+    type: str
+    required: true
+    description: "The type of destination address"
+    choices:
+      - net
+      - group
+      - location
+      - domain
+    api_field: DestinationType
+    updatable: true
+  proto:
+    type: str
+    required: true
+    description: "The protocol type for the policy"
+    choices:
+      - TCP
+      - UDP
+      - ICMP
+      - ANY
+    api_field: Proto
+    updatable: true
+  dest_port:
+    type: str
+    required: false
+    description: "The destination port or port range"
+    api_field: DestPort
+    updatable: true
+  application_name:
+    type: str
+    required: false
+    description: "The application type for the policy"
+    api_field: ApplicationName
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the policy"
+    api_field: Description
+    updatable: true
+  order:
+    type: int
+    required: true
+    description: "The priority order of the policy (lower is higher priority)"
+    api_field: Order
+    updatable: false

@@ -1,0 +1,62 @@
+name: BastionhostInstance
+module_name: alicloud_bastionhost_instance
+description: "Manage Bastionhost instances"
+product: Yundun-bastionhost
+api_version: "2019-12-09"
+create_action: CreateInstance
+update_action: ModifyInstance
+delete_action: DeleteInstance
+describe_action: DescribeInstances
+list_action: DescribeInstances
+id_field: InstanceId
+name_field: InstanceName
+generate_info: true
+endpoint_template: "yundun-bastionhost.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/bastion-host/developer-reference/api-yundun-bastionhost-2019-12-09-createinstance"
+properties:
+  instance_name:
+    type: str
+    required: false
+    description: "The name of the Bastionhost instance"
+    api_field: InstanceName
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the Bastionhost instance"
+    api_field: Description
+    updatable: true
+  plan_code:
+    type: str
+    required: true
+    description: "The plan code for the instance edition"
+    choices:
+      - cloudbastion
+      - cloudbastion.professional
+    api_field: PlanCode
+    updatable: false
+  period:
+    type: int
+    required: false
+    description: "The subscription period in months"
+    api_field: Period
+    updatable: false
+  vpc_id:
+    type: str
+    required: true
+    description: "The ID of the VPC"
+    api_field: VpcId
+    updatable: false
+  vswitch_id:
+    type: str
+    required: true
+    description: "The ID of the vSwitch"
+    api_field: VswitchId
+    updatable: false
+  security_group_ids:
+    type: list
+    required: false
+    description: "The list of security group IDs"
+    api_field: SecurityGroupIds
+    elements: str
+    updatable: true

@@ -4,6 +4,7 @@ description: "Manage Cloud Monitor metric alarm rules"
 product: Cms
 api_version: "2019-01-01"
 create_action: PutResourceMetricRule
+update_action: PutResourceMetricRule
 delete_action: DeleteMetricRules
 describe_action: DescribeMetricRuleList
 id_field: RuleId

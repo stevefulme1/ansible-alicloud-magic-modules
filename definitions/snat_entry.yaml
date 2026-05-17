@@ -1,0 +1,46 @@
+name: SnatEntry
+module_name: alicloud_snat_entry
+description: "Manage NAT Gateway SNAT entries"
+product: Vpc
+api_version: "2016-04-28"
+create_action: CreateSnatEntry
+update_action: ModifySnatEntry
+delete_action: DeleteSnatEntry
+describe_action: DescribeSnatTableEntries
+list_action: DescribeSnatTableEntries
+id_field: SnatEntryId
+name_field: SnatEntryName
+generate_info: true
+endpoint_template: "vpc.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/vpc/developer-reference/api-vpc-2016-04-28-createsnatentry"
+properties:
+  snat_table_id:
+    type: str
+    required: true
+    description: "The ID of the SNAT table"
+    api_field: SnatTableId
+    updatable: false
+  source_vswitch_id:
+    type: str
+    required: false
+    description: "The ID of the source vSwitch"
+    api_field: SourceVSwitchId
+    updatable: false
+  source_cidr:
+    type: str
+    required: false
+    description: "The source CIDR block for SNAT"
+    api_field: SourceCIDR
+    updatable: false
+  snat_ip:
+    type: str
+    required: true
+    description: "The public IP address for SNAT translation"
+    api_field: SnatIp
+    updatable: true
+  snat_entry_name:
+    type: str
+    required: false
+    description: "The name of the SNAT entry"
+    api_field: SnatEntryName
+    updatable: true

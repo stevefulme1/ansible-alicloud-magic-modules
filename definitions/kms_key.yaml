@@ -4,6 +4,7 @@ description: "Manage Alibaba Cloud KMS keys"
 product: Kms
 api_version: "2016-01-20"
 create_action: CreateKey
+update_action: UpdateKeyDescription
 delete_action: ScheduleKeyDeletion
 describe_action: DescribeKey
 list_action: ListKeys
@@ -17,7 +18,7 @@ properties:
     required: false
     description: "The description of the CMK"
     api_field: Description
-    updatable: false
+    updatable: true
   key_usage:
     type: str
     required: false

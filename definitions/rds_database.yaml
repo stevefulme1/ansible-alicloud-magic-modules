@@ -9,7 +9,9 @@ delete_action: DeleteDatabase
 describe_action: DescribeDatabases
 list_action: DescribeDatabases
 name_field: DBName
+id_field: DBName
 generate_info: true
+endpoint_template: "rds.{region}.aliyuncs.com"
 doc_url: "https://www.alibabacloud.com/help/en/rds/developer-reference/api-rds-2014-08-15-createdatabase"
 properties:
   db_instance_id:

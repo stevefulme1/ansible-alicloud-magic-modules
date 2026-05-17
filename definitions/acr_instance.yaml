@@ -1,0 +1,44 @@
+name: AcrInstance
+module_name: alicloud_acr_instance
+description: "Manage Container Registry Enterprise Edition instances"
+product: cr
+api_version: "2018-12-01"
+create_action: CreateInstance
+update_action: UpdateInstanceInfo
+delete_action: DeleteInstance
+describe_action: ListInstance
+list_action: ListInstance
+id_field: InstanceId
+name_field: InstanceName
+generate_info: true
+endpoint_template: "cr.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/acr/developer-reference/api-cr-2018-12-01-createinstance"
+properties:
+  instance_name:
+    type: str
+    required: true
+    description: "The name of the Container Registry instance"
+    api_field: InstanceName
+    updatable: true
+  instance_type:
+    type: str
+    required: true
+    description: "The edition of the Container Registry instance"
+    choices:
+      - Basic
+      - Standard
+      - Advanced
+    api_field: InstanceType
+    updatable: false
+  region_id:
+    type: str
+    required: false
+    description: "The region ID for the instance"
+    api_field: RegionId
+    updatable: false
+  period:
+    type: int
+    required: false
+    description: "The subscription period in months"
+    api_field: Period
+    updatable: false

@@ -1,0 +1,61 @@
+name: EcsSnapshot
+module_name: alicloud_ecs_snapshot
+description: "Manage ECS disk snapshots"
+product: Ecs
+api_version: "2014-05-26"
+create_action: CreateSnapshot
+delete_action: DeleteSnapshot
+describe_action: DescribeSnapshots
+list_action: DescribeSnapshots
+id_field: SnapshotId
+name_field: SnapshotName
+generate_info: true
+endpoint_template: "ecs.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-createsnapshot"
+properties:
+  snapshot_name:
+    type: str
+    required: false
+    description: "The name of the snapshot"
+    api_field: SnapshotName
+    updatable: false
+  disk_id:
+    type: str
+    required: true
+    description: "The ID of the disk to snapshot"
+    api_field: DiskId
+    updatable: false
+  description:
+    type: str
+    required: false
+    description: "The description of the snapshot"
+    api_field: Description
+    updatable: false
+  retention_days:
+    type: int
+    required: false
+    description: "The number of days to retain the snapshot"
+    api_field: RetentionDays
+    updatable: false
+  instant_access:
+    type: bool
+    required: false
+    description: "Whether to enable instant access"
+    api_field: InstantAccess
+    updatable: false
+  tags:
+    type: list
+    required: false
+    description: "Tags for the snapshot as a list of Key/Value dicts"
+    api_field: Tag
+    elements: dict
+    updatable: false
+    suboptions:
+      key:
+        type: str
+        required: true
+        description: "Tag key"
+      value:
+        type: str
+        required: false
+        description: "Tag value"

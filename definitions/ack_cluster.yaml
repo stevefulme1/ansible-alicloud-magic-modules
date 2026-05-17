@@ -10,6 +10,7 @@ describe_action: DescribeClusters
 id_field: ClusterId
 name_field: Name
 generate_info: true
+api_style: ROA
 endpoint_template: "cs.{region}.aliyuncs.com"
 doc_url: "https://www.alibabacloud.com/help/en/ack/developer-reference/api-cs-2015-12-15-createcluster"
 properties:
@@ -35,7 +36,7 @@ properties:
     type: str
     required: true
     description: "The ID of the VPC"
-    api_field: Vpcid
+    api_field: vpcid
     updatable: false
   vswitch_ids:
     type: list

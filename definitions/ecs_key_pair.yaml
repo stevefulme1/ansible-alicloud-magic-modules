@@ -10,6 +10,7 @@ list_action: DescribeKeyPairs
 id_field: KeyPairName
 name_field: KeyPairName
 generate_info: true
+endpoint_template: "ecs.{region}.aliyuncs.com"
 doc_url: "https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-createkeypair"
 properties:
   key_pair_name:

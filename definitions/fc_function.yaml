@@ -1,0 +1,76 @@
+name: FcFunction
+module_name: alicloud_fc_function
+description: "Manage Function Compute functions"
+product: FC
+api_version: "2023-03-30"
+create_action: CreateFunction
+update_action: UpdateFunction
+delete_action: DeleteFunction
+describe_action: ListFunctions
+list_action: ListFunctions
+id_field: FunctionName
+name_field: FunctionName
+generate_info: true
+endpoint_template: "fc.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/fc/developer-reference/api-fc-2023-03-30-createfunction"
+properties:
+  function_name:
+    type: str
+    required: true
+    description: "The name of the function"
+    api_field: FunctionName
+    updatable: false
+  service_name:
+    type: str
+    required: true
+    description: "The name of the service the function belongs to"
+    api_field: ServiceName
+    updatable: false
+  runtime:
+    type: str
+    required: true
+    description: "The runtime environment for the function"
+    choices:
+      - python3.10
+      - nodejs18
+      - java11
+      - go1
+      - custom
+    api_field: Runtime
+    updatable: true
+  handler:
+    type: str
+    required: true
+    description: "The entry point handler for the function"
+    api_field: Handler
+    updatable: true
+  memory_size:
+    type: int
+    required: false
+    description: "The memory size in MB for the function"
+    api_field: MemorySize
+    updatable: true
+  timeout:
+    type: int
+    required: false
+    description: "The execution timeout in seconds"
+    api_field: Timeout
+    updatable: true
+  code:
+    type: dict
+    required: false
+    description: "The code configuration with oss_bucket_name and oss_object_name"
+    api_field: Code
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the function"
+    api_field: Description
+    updatable: true
+  environment_variables:
+    type: dict
+    required: false
+    description: "Environment variables for the function as key-value pairs"
+    api_field: EnvironmentVariables
+    updatable: true
