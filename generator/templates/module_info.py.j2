@@ -29,7 +29,7 @@ options:
             - If not specified, all {{ resource.name | lower }} resources in the region will be listed.
         type: str
 {% endif %}
-{% if resource.name_field %}
+{% if resource.name_field and resource.name_field != resource.id_field %}
     name:
         description:
             - Name filter for listing {{ resource.name | lower }} resources.

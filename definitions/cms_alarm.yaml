@@ -51,8 +51,13 @@ properties:
   comparison_operator:
     type: str
     required: true
-    description: "The comparison operator, valid values: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanOrEqualToThreshold, LessThanThreshold"
+    description: "The comparison operator for the alarm threshold."
     api_field: ComparisonOperator
+    choices:
+      - GreaterThanOrEqualToThreshold
+      - GreaterThanThreshold
+      - LessThanOrEqualToThreshold
+      - LessThanThreshold
     updatable: true
   threshold:
     type: str
