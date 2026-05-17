@@ -1,0 +1,45 @@
+name: PaiService
+module_name: alicloud_pai_service
+description: "Manage PAI-EAS inference services for model serving"
+product: eas
+api_version: "2021-07-01"
+create_action: CreateService
+update_action: UpdateService
+delete_action: DeleteService
+describe_action: DescribeService
+id_field: ServiceName
+name_field: ServiceName
+generate_info: true
+endpoint_template: "pai-eas.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/pai/developer-reference/api-eas-2021-07-01-createservice"
+properties:
+  service_name:
+    type: str
+    required: true
+    description: "The name of the inference service"
+    api_field: ServiceName
+    updatable: false
+  namespace:
+    type: str
+    required: false
+    description: "The namespace of the service"
+    api_field: Namespace
+    updatable: false
+  body:
+    type: str
+    required: true
+    description: "The raw JSON configuration body for the model serving service"
+    api_field: Body
+    updatable: true
+  develop:
+    type: bool
+    required: false
+    description: "Whether to enable development mode"
+    api_field: Develop
+    updatable: true
+  labels:
+    type: dict
+    required: false
+    description: "The labels for the service as key-value pairs"
+    api_field: Labels
+    updatable: true

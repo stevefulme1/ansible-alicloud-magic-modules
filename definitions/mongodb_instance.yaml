@@ -1,0 +1,88 @@
+name: MongodbInstance
+module_name: alicloud_mongodb_instance
+description: "Manage MongoDB instances"
+product: Dds
+api_version: "2015-12-01"
+create_action: CreateDBInstance
+update_action: ModifyDBInstanceDescription
+delete_action: DeleteDBInstance
+describe_action: DescribeDBInstances
+id_field: DBInstanceId
+name_field: DBInstanceDescription
+generate_info: true
+endpoint_template: "dds.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/mongodb/developer-reference/api-dds-2015-12-01-createdbinstance"
+properties:
+  db_instance_description:
+    type: str
+    required: false
+    description: "The description of the MongoDB instance"
+    api_field: DBInstanceDescription
+    updatable: true
+  db_instance_class:
+    type: str
+    required: true
+    description: "The instance class specification"
+    api_field: DBInstanceClass
+    updatable: true
+  db_instance_storage:
+    type: int
+    required: true
+    description: "The storage capacity of the instance in GB"
+    api_field: DBInstanceStorage
+    updatable: true
+  engine:
+    type: str
+    required: true
+    description: "The database engine, must be MongoDB"
+    api_field: Engine
+    updatable: false
+  engine_version:
+    type: str
+    required: true
+    description: "The MongoDB engine version"
+    api_field: EngineVersion
+    updatable: false
+  vpc_id:
+    type: str
+    required: false
+    description: "The ID of the VPC"
+    api_field: VpcId
+    updatable: false
+  vswitch_id:
+    type: str
+    required: false
+    description: "The ID of the vSwitch"
+    api_field: VSwitchId
+    updatable: false
+  zone_id:
+    type: str
+    required: false
+    description: "The ID of the zone"
+    api_field: ZoneId
+    updatable: false
+  replication_factor:
+    type: int
+    required: false
+    description: "The number of replica set nodes, valid values: 1, 3, 5, 7"
+    api_field: ReplicationFactor
+    updatable: true
+  charge_type:
+    type: str
+    required: false
+    description: "The billing method, valid values: PostPaid, PrePaid"
+    api_field: ChargeType
+    updatable: false
+  account_password:
+    type: str
+    required: false
+    description: "The password for the root account"
+    api_field: AccountPassword
+    updatable: true
+    no_log: true
+  tags:
+    type: list
+    required: false
+    description: "The tags for the instance"
+    api_field: Tags
+    updatable: true

@@ -1,0 +1,45 @@
+name: MaxComputeProject
+module_name: alicloud_maxcompute_project
+description: "Manage MaxCompute (ODPS) projects for big data processing"
+product: MaxCompute
+api_version: "2022-01-04"
+create_action: CreateProject
+update_action: UpdateProject
+delete_action: DeleteProject
+list_action: ListProjects
+id_field: Name
+name_field: Name
+generate_info: true
+endpoint_template: "maxcompute.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/maxcompute/developer-reference/api-maxcompute-2022-01-04-createproject"
+properties:
+  project_name:
+    type: str
+    required: true
+    description: "The name of the MaxCompute project"
+    api_field: Name
+    updatable: false
+  comment:
+    type: str
+    required: false
+    description: "The comment or description of the project"
+    api_field: Comment
+    updatable: true
+  default_quota:
+    type: str
+    required: false
+    description: "The default computing quota for the project"
+    api_field: DefaultQuota
+    updatable: true
+  product_type:
+    type: str
+    required: false
+    description: "The product type of the project"
+    api_field: ProductType
+    updatable: false
+  properties:
+    type: dict
+    required: false
+    description: "The project properties including encryption, retention, and timezone settings"
+    api_field: Properties
+    updatable: true

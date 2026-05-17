@@ -1,0 +1,40 @@
+name: RamRole
+module_name: alicloud_ram_role
+description: "Manage Alibaba Cloud RAM roles"
+product: Ram
+api_version: "2015-05-01"
+create_action: CreateRole
+update_action: UpdateRole
+delete_action: DeleteRole
+describe_action: GetRole
+list_action: ListRoles
+id_field: RoleId
+name_field: RoleName
+endpoint_template: "ram.aliyuncs.com"
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/ram/developer-reference/api-ram-2015-05-01-createrole"
+properties:
+  role_name:
+    type: str
+    required: true
+    description: "The name of the RAM role"
+    api_field: RoleName
+    updatable: false
+  description:
+    type: str
+    required: false
+    description: "The description of the RAM role"
+    api_field: Description
+    updatable: true
+  assume_role_policy_document:
+    type: str
+    required: true
+    description: "The trust policy that specifies which entities can assume the role (JSON string)"
+    api_field: AssumeRolePolicyDocument
+    updatable: true
+  max_session_duration:
+    type: int
+    required: false
+    description: "The maximum session duration in seconds (3600-43200)"
+    api_field: MaxSessionDuration
+    updatable: true

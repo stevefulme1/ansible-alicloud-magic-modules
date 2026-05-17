@@ -1,0 +1,39 @@
+name: PaiWorkspace
+module_name: alicloud_pai_workspace
+description: "Manage PAI (Platform for AI) workspaces"
+product: AIWorkSpace
+api_version: "2021-02-04"
+create_action: CreateWorkspace
+update_action: UpdateWorkspace
+delete_action: DeleteWorkspace
+list_action: ListWorkspaces
+id_field: WorkspaceId
+name_field: WorkspaceName
+generate_info: true
+endpoint_template: "aiworkspace.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/pai/developer-reference/api-aiworkspace-2021-02-04-createworkspace"
+properties:
+  workspace_name:
+    type: str
+    required: true
+    description: "The name of the workspace"
+    api_field: WorkspaceName
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the workspace"
+    api_field: Description
+    updatable: true
+  display_name:
+    type: str
+    required: false
+    description: "The display name of the workspace"
+    api_field: DisplayName
+    updatable: true
+  env_types:
+    type: list
+    required: false
+    description: "The environment types for the workspace, valid values: dev, prod"
+    api_field: EnvTypes
+    updatable: false

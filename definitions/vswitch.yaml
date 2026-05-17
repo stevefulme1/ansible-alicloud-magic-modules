@@ -1,0 +1,51 @@
+name: VSwitch
+module_name: alicloud_vswitch
+description: "Manage Alibaba Cloud VSwitches (subnets)"
+product: Vpc
+api_version: "2016-04-28"
+create_action: CreateVSwitch
+update_action: ModifyVSwitchAttribute
+delete_action: DeleteVSwitch
+describe_action: DescribeVSwitches
+list_action: DescribeVSwitches
+id_field: VSwitchId
+name_field: VSwitchName
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/vpc/developer-reference/api-vpc-2016-04-28-createvswitch"
+properties:
+  vswitch_name:
+    type: str
+    required: false
+    description: "The name of the vSwitch"
+    api_field: VSwitchName
+    updatable: true
+  vpc_id:
+    type: str
+    required: true
+    description: "The ID of the VPC to which the vSwitch belongs"
+    api_field: VpcId
+    updatable: false
+  cidr_block:
+    type: str
+    required: true
+    description: "The CIDR block of the vSwitch"
+    api_field: CidrBlock
+    updatable: false
+  zone_id:
+    type: str
+    required: true
+    description: "The ID of the zone in which to create the vSwitch"
+    api_field: ZoneId
+    updatable: false
+  description:
+    type: str
+    required: false
+    description: "The description of the vSwitch"
+    api_field: Description
+    updatable: true
+  tags:
+    type: list
+    required: false
+    description: "The tags of the vSwitch as a list of dicts with Key and Value"
+    api_field: Tag
+    updatable: true

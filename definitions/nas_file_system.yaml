@@ -1,0 +1,75 @@
+name: NasFileSystem
+module_name: alicloud_nas_file_system
+description: "Manage NAS file systems for shared storage"
+product: NAS
+api_version: "2017-06-26"
+create_action: CreateFileSystem
+update_action: ModifyFileSystem
+delete_action: DeleteFileSystem
+describe_action: DescribeFileSystems
+id_field: FileSystemId
+name_field: Description
+generate_info: true
+endpoint_template: "nas.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/nas/developer-reference/api-nas-2017-06-26-createfilesystem"
+properties:
+  file_system_type:
+    type: str
+    required: true
+    description: "The type of the file system, valid values: standard, extreme, cpfs"
+    api_field: FileSystemType
+    updatable: false
+  protocol_type:
+    type: str
+    required: true
+    description: "The protocol type, valid values: NFS, SMB, cpfs"
+    api_field: ProtocolType
+    updatable: false
+  storage_type:
+    type: str
+    required: true
+    description: "The storage type, valid values: Performance, Capacity, standard, advance"
+    api_field: StorageType
+    updatable: false
+  vpc_id:
+    type: str
+    required: false
+    description: "The ID of the VPC"
+    api_field: VpcId
+    updatable: false
+  vswitch_id:
+    type: str
+    required: false
+    description: "The ID of the vSwitch"
+    api_field: VSwitchId
+    updatable: false
+  zone_id:
+    type: str
+    required: false
+    description: "The ID of the zone"
+    api_field: ZoneId
+    updatable: false
+  description:
+    type: str
+    required: false
+    description: "The description of the file system"
+    api_field: Description
+    updatable: true
+  encrypt_type:
+    type: int
+    required: false
+    description: "The encryption type, 0 for none, 1 for NAS-managed, 2 for KMS-managed"
+    api_field: EncryptType
+    updatable: false
+  capacity:
+    type: int
+    required: false
+    description: "The capacity of the file system in GB (required for extreme/cpfs types)"
+    api_field: Capacity
+    updatable: true
+  tags:
+    type: list
+    required: false
+    description: "The tags for the file system"
+    api_field: Tags
+    updatable: true

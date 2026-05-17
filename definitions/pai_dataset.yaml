@@ -1,0 +1,63 @@
+name: PaiDataset
+module_name: alicloud_pai_dataset
+description: "Manage PAI datasets for machine learning workflows"
+product: AIWorkSpace
+api_version: "2021-02-04"
+create_action: CreateDataset
+update_action: UpdateDataset
+delete_action: DeleteDataset
+list_action: ListDatasets
+id_field: DatasetId
+name_field: Name
+generate_info: true
+endpoint_template: "aiworkspace.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/pai/developer-reference/api-aiworkspace-2021-02-04-createdataset"
+properties:
+  dataset_name:
+    type: str
+    required: true
+    description: "The name of the dataset"
+    api_field: Name
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the dataset"
+    api_field: Description
+    updatable: true
+  workspace_id:
+    type: str
+    required: true
+    description: "The ID of the workspace to which the dataset belongs"
+    api_field: WorkspaceId
+    updatable: false
+  data_source_type:
+    type: str
+    required: true
+    description: "The type of the data source, valid values: OSS, NAS, CPFS"
+    api_field: DataSourceType
+    updatable: false
+  data_type:
+    type: str
+    required: false
+    description: "The type of the data, valid values: Text, Image, Video, Audio, Tabular"
+    api_field: DataType
+    updatable: true
+  property:
+    type: str
+    required: true
+    description: "The property of the dataset, valid values: DIRECTORY, FILE"
+    api_field: Property
+    updatable: false
+  uri:
+    type: str
+    required: true
+    description: "The URI of the dataset, e.g. oss://bucket/path/"
+    api_field: Uri
+    updatable: true
+  accessibility:
+    type: str
+    required: false
+    description: "The accessibility of the dataset, valid values: PRIVATE, PUBLIC"
+    api_field: Accessibility
+    updatable: true

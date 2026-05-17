@@ -1,0 +1,58 @@
+name: OssBucket
+module_name: alicloud_oss_bucket
+description: "Manage Alibaba Cloud OSS buckets"
+product: Oss
+api_version: "2019-05-17"
+create_action: PutBucket
+update_action: PutBucketAcl
+delete_action: DeleteBucket
+describe_action: GetBucketInfo
+list_action: ListBuckets
+id_field: BucketName
+name_field: BucketName
+endpoint_template: "oss-{region}.aliyuncs.com"
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/oss/developer-reference/api-oss-2019-05-17-putbucket"
+properties:
+  bucket_name:
+    type: str
+    required: true
+    description: "The name of the bucket"
+    api_field: BucketName
+    updatable: false
+  acl:
+    type: str
+    required: false
+    description: "The access control list of the bucket"
+    api_field: ACL
+    updatable: true
+    choices:
+      - private
+      - public-read
+      - public-read-write
+  storage_class:
+    type: str
+    required: false
+    description: "The storage class of the bucket"
+    api_field: StorageClass
+    updatable: false
+    choices:
+      - Standard
+      - IA
+      - Archive
+      - ColdArchive
+  redundancy_type:
+    type: str
+    required: false
+    description: "The data redundancy type of the bucket"
+    api_field: DataRedundancyType
+    updatable: false
+    choices:
+      - LRS
+      - ZRS
+  tags:
+    type: list
+    required: false
+    description: "The tags of the bucket as a list of dicts with Key and Value"
+    api_field: Tag
+    updatable: true

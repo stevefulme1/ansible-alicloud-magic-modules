@@ -1,0 +1,92 @@
+name: CmsAlarm
+module_name: alicloud_cms_alarm
+description: "Manage Cloud Monitor metric alarm rules"
+product: Cms
+api_version: "2019-01-01"
+create_action: PutResourceMetricRule
+delete_action: DeleteMetricRules
+describe_action: DescribeMetricRuleList
+id_field: RuleId
+name_field: RuleName
+generate_info: true
+endpoint_template: "metrics.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/cms/developer-reference/api-cms-2019-01-01-putresourcemetricrule"
+properties:
+  rule_name:
+    type: str
+    required: true
+    description: "The name of the alarm rule"
+    api_field: RuleName
+    updatable: true
+  namespace:
+    type: str
+    required: true
+    description: "The namespace of the cloud service, e.g. acs_ecs_dashboard"
+    api_field: Namespace
+    updatable: false
+  metric_name:
+    type: str
+    required: true
+    description: "The name of the metric"
+    api_field: MetricName
+    updatable: false
+  dimensions:
+    type: dict
+    required: true
+    description: "The dimensions of the metric as key-value pairs"
+    api_field: Dimensions
+    updatable: false
+  period:
+    type: int
+    required: false
+    description: "The aggregation period in seconds"
+    api_field: Period
+    updatable: true
+  statistics:
+    type: str
+    required: true
+    description: "The statistical method, e.g. Average, Maximum, Minimum"
+    api_field: Statistics
+    updatable: true
+  comparison_operator:
+    type: str
+    required: true
+    description: "The comparison operator, valid values: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanOrEqualToThreshold, LessThanThreshold"
+    api_field: ComparisonOperator
+    updatable: true
+  threshold:
+    type: str
+    required: true
+    description: "The threshold value for the alarm"
+    api_field: Threshold
+    updatable: true
+  evaluation_count:
+    type: int
+    required: false
+    description: "The number of consecutive times the threshold must be exceeded"
+    api_field: EvaluationCount
+    updatable: true
+  contact_groups:
+    type: list
+    required: true
+    description: "The list of alert contact groups"
+    api_field: ContactGroups
+    updatable: true
+  effective_interval:
+    type: str
+    required: false
+    description: "The effective time range, e.g. 00:00-23:59"
+    api_field: EffectiveInterval
+    updatable: true
+  silence_time:
+    type: int
+    required: false
+    description: "The mute period in seconds after an alarm is triggered"
+    api_field: SilenceTime
+    updatable: true
+  webhook:
+    type: str
+    required: false
+    description: "The webhook URL to call when the alarm is triggered"
+    api_field: Webhook
+    updatable: true

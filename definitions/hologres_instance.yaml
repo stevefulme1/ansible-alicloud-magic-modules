@@ -1,0 +1,57 @@
+name: HologresInstance
+module_name: alicloud_hologres_instance
+description: "Manage Hologres real-time interactive analytics instances"
+product: Hologram
+api_version: "2022-06-01"
+create_action: CreateInstance
+update_action: UpdateInstanceName
+delete_action: DeleteInstance
+list_action: ListInstances
+id_field: InstanceId
+name_field: InstanceName
+generate_info: true
+endpoint_template: "hologram.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/hologres/developer-reference/api-hologram-2022-06-01-createinstance"
+properties:
+  instance_name:
+    type: str
+    required: true
+    description: "The name of the Hologres instance"
+    api_field: InstanceName
+    updatable: true
+  instance_type:
+    type: str
+    required: true
+    description: "The type of the instance, valid values: Standard, Follower"
+    api_field: InstanceType
+    updatable: false
+  pricing_cycle:
+    type: str
+    required: true
+    description: "The billing cycle, valid values: Hour, Month, Year"
+    api_field: PricingCycle
+    updatable: false
+  duration:
+    type: int
+    required: false
+    description: "The subscription duration"
+    api_field: Duration
+    updatable: false
+  cpu:
+    type: int
+    required: true
+    description: "The number of CPU cores for the instance"
+    api_field: Cpu
+    updatable: true
+  auto_pay:
+    type: bool
+    required: false
+    description: "Whether to automatically pay for the instance"
+    api_field: AutoPay
+    updatable: false
+  endpoints:
+    type: list
+    required: false
+    description: "The list of endpoints for the instance"
+    api_field: Endpoints
+    updatable: false

@@ -1,0 +1,42 @@
+name: RamPolicy
+module_name: alicloud_ram_policy
+description: "Manage Alibaba Cloud RAM policies"
+product: Ram
+api_version: "2015-05-01"
+create_action: CreatePolicy
+delete_action: DeletePolicy
+describe_action: GetPolicy
+list_action: ListPolicies
+id_field: PolicyName
+name_field: PolicyName
+endpoint_template: "ram.aliyuncs.com"
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/ram/developer-reference/api-ram-2015-05-01-createpolicy"
+properties:
+  policy_name:
+    type: str
+    required: true
+    description: "The name of the policy"
+    api_field: PolicyName
+    updatable: false
+  policy_type:
+    type: str
+    required: false
+    description: "The type of the policy"
+    api_field: PolicyType
+    updatable: false
+    choices:
+      - Custom
+      - System
+  description:
+    type: str
+    required: false
+    description: "The description of the policy"
+    api_field: Description
+    updatable: false
+  policy_document:
+    type: str
+    required: true
+    description: "The policy document that specifies permissions (JSON string)"
+    api_field: PolicyDocument
+    updatable: false

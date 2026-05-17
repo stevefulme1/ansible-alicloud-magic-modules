@@ -1,0 +1,107 @@
+name: RdsInstance
+module_name: alicloud_rds_instance
+description: "Manage Alibaba Cloud RDS database instances"
+product: Rds
+api_version: "2014-08-15"
+create_action: CreateDBInstance
+update_action: ModifyDBInstanceSpec
+delete_action: DeleteDBInstance
+describe_action: DescribeDBInstances
+list_action: DescribeDBInstances
+id_field: DBInstanceId
+name_field: DBInstanceDescription
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/rds/developer-reference/api-rds-2014-08-15-createdbinstance"
+properties:
+  engine:
+    type: str
+    required: true
+    description: "The database engine"
+    api_field: Engine
+    updatable: false
+    choices:
+      - MySQL
+      - PostgreSQL
+      - SQLServer
+      - MariaDB
+  engine_version:
+    type: str
+    required: true
+    description: "The version of the database engine"
+    api_field: EngineVersion
+    updatable: false
+  db_instance_class:
+    type: str
+    required: true
+    description: "The instance type (e.g., rds.mysql.s1.small)"
+    api_field: DBInstanceClass
+    updatable: true
+  db_instance_storage:
+    type: int
+    required: true
+    description: "The storage capacity in GB"
+    api_field: DBInstanceStorage
+    updatable: true
+  db_instance_net_type:
+    type: str
+    required: false
+    description: "The network connection type of the instance"
+    api_field: DBInstanceNetType
+    updatable: false
+    choices:
+      - Internet
+      - Intranet
+  security_ip_list:
+    type: str
+    required: false
+    description: "The IP address whitelist of the instance"
+    api_field: SecurityIPList
+    updatable: true
+  vpc_id:
+    type: str
+    required: false
+    description: "The ID of the VPC"
+    api_field: VPCId
+    updatable: false
+  vswitch_id:
+    type: str
+    required: false
+    description: "The ID of the vSwitch"
+    api_field: VSwitchId
+    updatable: false
+  zone_id:
+    type: str
+    required: false
+    description: "The ID of the zone"
+    api_field: ZoneId
+    updatable: false
+  instance_network_type:
+    type: str
+    required: false
+    description: "The network type of the instance"
+    api_field: InstanceNetworkType
+    updatable: false
+    choices:
+      - VPC
+      - Classic
+  pay_type:
+    type: str
+    required: false
+    description: "The billing method of the instance"
+    api_field: PayType
+    updatable: false
+    choices:
+      - Postpaid
+      - Prepaid
+  db_instance_description:
+    type: str
+    required: false
+    description: "The description of the instance"
+    api_field: DBInstanceDescription
+    updatable: true
+  tags:
+    type: list
+    required: false
+    description: "The tags of the instance as a list of dicts with Key and Value"
+    api_field: Tag
+    updatable: true

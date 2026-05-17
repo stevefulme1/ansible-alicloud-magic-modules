@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+.nox/
+output/
+coverage.xml
+.pytest_cache/

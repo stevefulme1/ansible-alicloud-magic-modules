@@ -1,0 +1,46 @@
+name: RamUser
+module_name: alicloud_ram_user
+description: "Manage Alibaba Cloud RAM users"
+product: Ram
+api_version: "2015-05-01"
+create_action: CreateUser
+update_action: UpdateUser
+delete_action: DeleteUser
+describe_action: GetUser
+list_action: ListUsers
+id_field: UserId
+name_field: UserName
+endpoint_template: "ram.aliyuncs.com"
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/ram/developer-reference/api-ram-2015-05-01-createuser"
+properties:
+  user_name:
+    type: str
+    required: true
+    description: "The name of the RAM user"
+    api_field: UserName
+    updatable: true
+  display_name:
+    type: str
+    required: false
+    description: "The display name of the RAM user"
+    api_field: DisplayName
+    updatable: true
+  email:
+    type: str
+    required: false
+    description: "The email address of the RAM user"
+    api_field: Email
+    updatable: true
+  mobile_phone:
+    type: str
+    required: false
+    description: "The mobile phone number of the RAM user"
+    api_field: MobilePhone
+    updatable: true
+  comments:
+    type: str
+    required: false
+    description: "The comments for the RAM user"
+    api_field: Comments
+    updatable: true

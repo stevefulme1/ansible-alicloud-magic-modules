@@ -1,0 +1,87 @@
+name: AckCluster
+module_name: alicloud_ack_cluster
+description: "Manage ACK (Container Service for Kubernetes) clusters"
+product: CS
+api_version: "2015-12-15"
+create_action: CreateCluster
+update_action: ModifyCluster
+delete_action: DeleteCluster
+describe_action: DescribeClusters
+id_field: ClusterId
+name_field: Name
+generate_info: true
+endpoint_template: "cs.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/ack/developer-reference/api-cs-2015-12-15-createcluster"
+properties:
+  cluster_name:
+    type: str
+    required: true
+    description: "The name of the ACK cluster"
+    api_field: Name
+    updatable: true
+  cluster_type:
+    type: str
+    required: true
+    description: "The type of the cluster, valid values: ManagedKubernetes, ExternalKubernetes"
+    api_field: ClusterType
+    updatable: false
+  kubernetes_version:
+    type: str
+    required: false
+    description: "The Kubernetes version of the cluster"
+    api_field: KubernetesVersion
+    updatable: true
+  vpcid:
+    type: str
+    required: true
+    description: "The ID of the VPC"
+    api_field: Vpcid
+    updatable: false
+  vswitch_ids:
+    type: list
+    required: true
+    description: "The list of vSwitch IDs"
+    api_field: VswitchIds
+    updatable: false
+  container_cidr:
+    type: str
+    required: false
+    description: "The CIDR block for containers"
+    api_field: ContainerCidr
+    updatable: false
+  service_cidr:
+    type: str
+    required: false
+    description: "The CIDR block for services"
+    api_field: ServiceCidr
+    updatable: false
+  num_of_nodes:
+    type: int
+    required: false
+    description: "The number of worker nodes"
+    api_field: NumOfNodes
+    updatable: true
+  worker_instance_types:
+    type: list
+    required: false
+    description: "The list of ECS instance types for worker nodes"
+    api_field: WorkerInstanceTypes
+    updatable: false
+  worker_system_disk_category:
+    type: str
+    required: false
+    description: "The system disk category for worker nodes"
+    api_field: WorkerSystemDiskCategory
+    updatable: false
+  worker_system_disk_size:
+    type: int
+    required: false
+    description: "The system disk size for worker nodes in GB"
+    api_field: WorkerSystemDiskSize
+    updatable: false
+  tags:
+    type: list
+    required: false
+    description: "The tags for the cluster"
+    api_field: Tags
+    updatable: true

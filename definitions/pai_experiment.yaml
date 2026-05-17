@@ -1,0 +1,39 @@
+name: PaiExperiment
+module_name: alicloud_pai_experiment
+description: "Manage PAI experiments for tracking ML workflows"
+product: AIWorkSpace
+api_version: "2021-02-04"
+create_action: CreateExperiment
+update_action: UpdateExperiment
+delete_action: DeleteExperiment
+list_action: ListExperiments
+id_field: ExperimentId
+name_field: Name
+generate_info: true
+endpoint_template: "aiworkspace.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/pai/developer-reference/api-aiworkspace-2021-02-04-createexperiment"
+properties:
+  experiment_name:
+    type: str
+    required: true
+    description: "The name of the experiment"
+    api_field: Name
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the experiment"
+    api_field: Description
+    updatable: true
+  workspace_id:
+    type: str
+    required: true
+    description: "The ID of the workspace to which the experiment belongs"
+    api_field: WorkspaceId
+    updatable: false
+  artifact_uri:
+    type: str
+    required: false
+    description: "The URI for storing experiment artifacts"
+    api_field: ArtifactUri
+    updatable: true

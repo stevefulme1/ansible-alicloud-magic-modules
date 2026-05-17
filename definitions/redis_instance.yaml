@@ -1,0 +1,76 @@
+name: RedisInstance
+module_name: alicloud_redis_instance
+description: "Manage Redis instances for in-memory caching and data storage"
+product: R-kvstore
+api_version: "2015-01-01"
+create_action: CreateInstance
+update_action: ModifyInstanceAttribute
+delete_action: DeleteInstance
+describe_action: DescribeInstances
+id_field: InstanceId
+name_field: InstanceName
+generate_info: true
+endpoint_template: "r-kvstore.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/redis/developer-reference/api-r-kvstore-2015-01-01-createinstance"
+properties:
+  instance_name:
+    type: str
+    required: false
+    description: "The name of the Redis instance"
+    api_field: InstanceName
+    updatable: true
+  instance_class:
+    type: str
+    required: true
+    description: "The instance class specification"
+    api_field: InstanceClass
+    updatable: true
+  instance_type:
+    type: str
+    required: false
+    description: "The instance type, valid values: Redis, Memcache"
+    api_field: InstanceType
+    updatable: false
+  engine_version:
+    type: str
+    required: false
+    description: "The engine version of Redis"
+    api_field: EngineVersion
+    updatable: false
+  vpc_id:
+    type: str
+    required: false
+    description: "The ID of the VPC"
+    api_field: VpcId
+    updatable: false
+  vswitch_id:
+    type: str
+    required: false
+    description: "The ID of the vSwitch"
+    api_field: VSwitchId
+    updatable: false
+  zone_id:
+    type: str
+    required: false
+    description: "The ID of the zone"
+    api_field: ZoneId
+    updatable: false
+  password:
+    type: str
+    required: false
+    description: "The password for the Redis instance"
+    api_field: Password
+    updatable: true
+    no_log: true
+  charge_type:
+    type: str
+    required: false
+    description: "The billing method, valid values: PostPaid, PrePaid"
+    api_field: ChargeType
+    updatable: false
+  tags:
+    type: list
+    required: false
+    description: "The tags for the instance"
+    api_field: Tags
+    updatable: true

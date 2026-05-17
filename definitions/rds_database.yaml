@@ -1,0 +1,38 @@
+name: RdsDatabase
+module_name: alicloud_rds_database
+description: "Manage Alibaba Cloud RDS databases"
+product: Rds
+api_version: "2014-08-15"
+create_action: CreateDatabase
+update_action: ModifyDBDescription
+delete_action: DeleteDatabase
+describe_action: DescribeDatabases
+list_action: DescribeDatabases
+name_field: DBName
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/rds/developer-reference/api-rds-2014-08-15-createdatabase"
+properties:
+  db_instance_id:
+    type: str
+    required: true
+    description: "The ID of the RDS instance"
+    api_field: DBInstanceId
+    updatable: false
+  db_name:
+    type: str
+    required: true
+    description: "The name of the database"
+    api_field: DBName
+    updatable: false
+  character_set_name:
+    type: str
+    required: true
+    description: "The character set of the database (e.g., utf8, utf8mb4)"
+    api_field: CharacterSetName
+    updatable: false
+  db_description:
+    type: str
+    required: false
+    description: "The description of the database"
+    api_field: DBDescription
+    updatable: true

@@ -1,0 +1,51 @@
+name: DataWorksProject
+module_name: alicloud_dataworks_project
+description: "Manage DataWorks projects for data integration and development"
+product: DataWorks
+api_version: "2020-05-18"
+create_action: CreateProject
+update_action: UpdateProject
+delete_action: DeleteProject
+list_action: ListProjects
+id_field: ProjectId
+name_field: ProjectName
+generate_info: true
+endpoint_template: "dataworks.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2020-05-18-createproject"
+properties:
+  project_name:
+    type: str
+    required: true
+    description: "The name of the DataWorks project"
+    api_field: ProjectName
+    updatable: false
+  project_description:
+    type: str
+    required: false
+    description: "The description of the project"
+    api_field: ProjectDescription
+    updatable: true
+  project_mode:
+    type: int
+    required: false
+    description: "The project mode, valid values: 2 (standard mode), 3 (simple mode)"
+    api_field: ProjectMode
+    updatable: false
+  disable_development:
+    type: bool
+    required: false
+    description: "Whether to disable the development environment"
+    api_field: DisableDevelopment
+    updatable: true
+  table_privacy_mode:
+    type: int
+    required: false
+    description: "The table privacy mode for the project"
+    api_field: TablePrivacyMode
+    updatable: true
+  schedule_resource_group_list:
+    type: list
+    required: false
+    description: "The list of scheduling resource groups for the project"
+    api_field: ScheduleResourceGroupList
+    updatable: true

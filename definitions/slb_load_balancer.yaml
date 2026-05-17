@@ -1,0 +1,88 @@
+name: SlbLoadBalancer
+module_name: alicloud_slb_load_balancer
+description: "Manage Alibaba Cloud SLB load balancers"
+product: Slb
+api_version: "2014-05-15"
+create_action: CreateLoadBalancer
+update_action: ModifyLoadBalancerInternetSpec
+delete_action: DeleteLoadBalancer
+describe_action: DescribeLoadBalancers
+list_action: DescribeLoadBalancers
+id_field: LoadBalancerId
+name_field: LoadBalancerName
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/slb/developer-reference/api-slb-2014-05-15-createloadbalancer"
+properties:
+  load_balancer_name:
+    type: str
+    required: false
+    description: "The name of the SLB instance"
+    api_field: LoadBalancerName
+    updatable: true
+  address_type:
+    type: str
+    required: false
+    description: "The network type of the SLB instance"
+    api_field: AddressType
+    updatable: false
+    choices:
+      - internet
+      - intranet
+  vswitch_id:
+    type: str
+    required: false
+    description: "The ID of the vSwitch for intranet SLB instances"
+    api_field: VSwitchId
+    updatable: false
+  vpc_id:
+    type: str
+    required: false
+    description: "The ID of the VPC to which the SLB instance belongs"
+    api_field: VpcId
+    updatable: false
+  load_balancer_spec:
+    type: str
+    required: false
+    description: "The specification of the SLB instance"
+    api_field: LoadBalancerSpec
+    updatable: true
+    choices:
+      - slb.s1.small
+      - slb.s2.small
+      - slb.s2.medium
+      - slb.s3.small
+      - slb.s3.medium
+      - slb.s3.large
+  internet_charge_type:
+    type: str
+    required: false
+    description: "The metering method for an internet-facing SLB instance"
+    api_field: InternetChargeType
+    updatable: true
+    choices:
+      - paybytraffic
+      - paybybandwidth
+  bandwidth:
+    type: int
+    required: false
+    description: "The maximum bandwidth of the listener in Mbit/s"
+    api_field: Bandwidth
+    updatable: true
+  master_zone_id:
+    type: str
+    required: false
+    description: "The ID of the primary zone"
+    api_field: MasterZoneId
+    updatable: false
+  slave_zone_id:
+    type: str
+    required: false
+    description: "The ID of the secondary zone"
+    api_field: SlaveZoneId
+    updatable: false
+  tags:
+    type: list
+    required: false
+    description: "The tags of the SLB instance as a list of dicts with Key and Value"
+    api_field: Tag
+    updatable: true

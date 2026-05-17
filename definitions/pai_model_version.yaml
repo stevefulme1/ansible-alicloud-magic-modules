@@ -1,0 +1,57 @@
+name: PaiModelVersion
+module_name: alicloud_pai_model_version
+description: "Manage PAI model versions in the model registry"
+product: AIWorkSpace
+api_version: "2021-02-04"
+create_action: CreateModelVersion
+update_action: UpdateModelVersion
+delete_action: DeleteModelVersion
+list_action: ListModelVersions
+id_field: VersionName
+name_field: VersionName
+generate_info: true
+endpoint_template: "aiworkspace.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/pai/developer-reference/api-aiworkspace-2021-02-04-createmodelversion"
+properties:
+  model_id:
+    type: str
+    required: true
+    description: "The ID of the parent model"
+    api_field: ModelId
+    updatable: false
+  version_name:
+    type: str
+    required: false
+    description: "The name of the model version"
+    api_field: VersionName
+    updatable: false
+  description:
+    type: str
+    required: false
+    description: "The description of the model version"
+    api_field: Description
+    updatable: true
+  uri:
+    type: str
+    required: true
+    description: "The URI of the model artifacts"
+    api_field: Uri
+    updatable: true
+  source_type:
+    type: str
+    required: false
+    description: "The source type of the model, valid values: OSS, LinuxFileSystem"
+    api_field: SourceType
+    updatable: false
+  format_type:
+    type: str
+    required: false
+    description: "The format of the model, e.g. SavedModel, ONNX, PMML"
+    api_field: FormatType
+    updatable: true
+  approval_status:
+    type: str
+    required: false
+    description: "The approval status of the model version"
+    api_field: ApprovalStatus
+    updatable: true

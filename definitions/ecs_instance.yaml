@@ -1,0 +1,108 @@
+name: EcsInstance
+module_name: alicloud_ecs_instance
+description: "Manage Alibaba Cloud ECS compute instances"
+product: Ecs
+api_version: "2014-05-26"
+create_action: RunInstances
+update_action: ModifyInstanceAttribute
+delete_action: DeleteInstance
+describe_action: DescribeInstances
+list_action: DescribeInstances
+id_field: InstanceId
+name_field: InstanceName
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-runinstances"
+properties:
+  instance_name:
+    type: str
+    required: false
+    description: "The name of the ECS instance"
+    api_field: InstanceName
+    updatable: true
+  instance_type:
+    type: str
+    required: true
+    description: "The instance type (e.g., ecs.g6.large)"
+    api_field: InstanceType
+    updatable: false
+  image_id:
+    type: str
+    required: true
+    description: "The ID of the image used to create the instance"
+    api_field: ImageId
+    updatable: false
+  security_group_id:
+    type: str
+    required: true
+    description: "The ID of the security group to which the instance belongs"
+    api_field: SecurityGroupId
+    updatable: false
+  vswitch_id:
+    type: str
+    required: false
+    description: "The ID of the vSwitch to which the instance connects"
+    api_field: VSwitchId
+    updatable: false
+  internet_charge_type:
+    type: str
+    required: false
+    description: "The billing method for network usage"
+    api_field: InternetChargeType
+    updatable: false
+    choices:
+      - PayByTraffic
+      - PayByBandwidth
+  system_disk_category:
+    type: str
+    required: false
+    description: "The category of the system disk"
+    api_field: SystemDisk.Category
+    updatable: false
+    choices:
+      - cloud_efficiency
+      - cloud_ssd
+      - cloud_essd
+      - cloud
+  system_disk_size:
+    type: int
+    required: false
+    description: "The size of the system disk in GiB"
+    api_field: SystemDisk.Size
+    updatable: false
+  password:
+    type: str
+    required: false
+    description: "The password for the instance"
+    api_field: Password
+    updatable: false
+    no_log: true
+  key_pair_name:
+    type: str
+    required: false
+    description: "The name of the SSH key pair for the instance"
+    api_field: KeyPairName
+    updatable: false
+  amount:
+    type: int
+    required: false
+    description: "The number of instances to create"
+    api_field: Amount
+    updatable: false
+  description:
+    type: str
+    required: false
+    description: "The description of the instance"
+    api_field: Description
+    updatable: true
+  host_name:
+    type: str
+    required: false
+    description: "The hostname of the instance"
+    api_field: HostName
+    updatable: true
+  tags:
+    type: list
+    required: false
+    description: "The tags of the instance as a list of dicts with Key and Value"
+    api_field: Tag
+    updatable: true

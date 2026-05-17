@@ -1,0 +1,73 @@
+name: EcsDisk
+module_name: alicloud_ecs_disk
+description: "Manage Alibaba Cloud ECS disks"
+product: Ecs
+api_version: "2014-05-26"
+create_action: CreateDisk
+update_action: ModifyDiskAttribute
+delete_action: DeleteDisk
+describe_action: DescribeDisks
+list_action: DescribeDisks
+id_field: DiskId
+name_field: DiskName
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-createdisk"
+properties:
+  disk_name:
+    type: str
+    required: false
+    description: "The name of the disk"
+    api_field: DiskName
+    updatable: true
+  size:
+    type: int
+    required: false
+    description: "The size of the disk in GiB"
+    api_field: Size
+    updatable: false
+  category:
+    type: str
+    required: false
+    description: "The category of the disk"
+    api_field: DiskCategory
+    updatable: false
+    choices:
+      - cloud
+      - cloud_efficiency
+      - cloud_ssd
+      - cloud_essd
+  zone_id:
+    type: str
+    required: true
+    description: "The ID of the zone in which to create the disk"
+    api_field: ZoneId
+    updatable: false
+  description:
+    type: str
+    required: false
+    description: "The description of the disk"
+    api_field: Description
+    updatable: true
+  encrypted:
+    type: bool
+    required: false
+    description: "Whether the disk is encrypted"
+    api_field: Encrypted
+    updatable: false
+  snapshot_id:
+    type: str
+    required: false
+    description: "The ID of the snapshot used to create the disk"
+    api_field: SnapshotId
+    updatable: false
+  performance_level:
+    type: str
+    required: false
+    description: "The performance level of an ESSD"
+    api_field: PerformanceLevel
+    updatable: true
+    choices:
+      - PL0
+      - PL1
+      - PL2
+      - PL3

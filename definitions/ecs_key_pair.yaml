@@ -1,0 +1,26 @@
+name: EcsKeyPair
+module_name: alicloud_ecs_key_pair
+description: "Manage Alibaba Cloud ECS SSH key pairs"
+product: Ecs
+api_version: "2014-05-26"
+create_action: CreateKeyPair
+delete_action: DeleteKeyPairs
+describe_action: DescribeKeyPairs
+list_action: DescribeKeyPairs
+id_field: KeyPairName
+name_field: KeyPairName
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-createkeypair"
+properties:
+  key_pair_name:
+    type: str
+    required: true
+    description: "The name of the key pair"
+    api_field: KeyPairName
+    updatable: false
+  tags:
+    type: list
+    required: false
+    description: "The tags of the key pair as a list of dicts with Key and Value"
+    api_field: Tag
+    updatable: false

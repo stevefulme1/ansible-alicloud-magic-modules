@@ -1,0 +1,42 @@
+name: EcsSecurityGroup
+module_name: alicloud_ecs_security_group
+description: "Manage Alibaba Cloud ECS security groups"
+product: Ecs
+api_version: "2014-05-26"
+create_action: CreateSecurityGroup
+update_action: ModifySecurityGroupAttribute
+delete_action: DeleteSecurityGroup
+describe_action: DescribeSecurityGroups
+list_action: DescribeSecurityGroups
+id_field: SecurityGroupId
+name_field: SecurityGroupName
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-createsecuritygroup"
+properties:
+  security_group_name:
+    type: str
+    required: false
+    description: "The name of the security group"
+    api_field: SecurityGroupName
+    updatable: true
+  vpc_id:
+    type: str
+    required: false
+    description: "The ID of the VPC in which to create the security group"
+    api_field: VpcId
+    updatable: false
+  description:
+    type: str
+    required: false
+    description: "The description of the security group"
+    api_field: Description
+    updatable: true
+  security_group_type:
+    type: str
+    required: false
+    description: "The type of the security group"
+    api_field: SecurityGroupType
+    updatable: false
+    choices:
+      - normal
+      - enterprise

@@ -1,0 +1,127 @@
+# ============================================================================
+# Alibaba Cloud Magic Module — Resource Definition Schema Reference
+# ============================================================================
+# This file documents the YAML schema used to define Alibaba Cloud resources.
+# Each .yaml file in this directory (except this one) describes one Alibaba
+# Cloud resource and produces one Ansible module (plus an optional _info module).
+#
+# The generator reads these definitions and produces fully-functional Ansible
+# modules that use the Alibaba Cloud tea-openapi SDK via AliCloudModuleBase.
+# ============================================================================
+
+# ---- Required top-level fields --------------------------------------------
+
+# name: PascalCase resource name used in class names and object references
+name: EcsSecurityGroup
+
+# module_name: snake_case Ansible module name (alicloud_ prefix by convention)
+module_name: alicloud_ecs_securitygroup
+
+# description: one-line summary used in DOCUMENTATION short_description
+description: Manage Alibaba Cloud ECS security groups
+
+# product: Alibaba Cloud product code (e.g. Ecs, Vpc, Rds, Oss, Slb)
+product: Ecs
+
+# api_version: Alibaba Cloud API version for this product
+api_version: "2014-05-26"
+
+# ---- Optional top-level fields --------------------------------------------
+
+# create_action: OpenAPI action name to create the resource
+create_action: CreateSecurityGroup
+
+# update_action: OpenAPI action name to update the resource (omit if not supported)
+update_action: ModifySecurityGroupAttribute
+
+# delete_action: OpenAPI action name to delete the resource
+delete_action: DeleteSecurityGroup
+
+# describe_action: OpenAPI action name to describe/get the resource
+describe_action: DescribeSecurityGroups
+
+# list_action: OpenAPI action name to list resources (often same as describe)
+list_action: DescribeSecurityGroups
+
+# id_field: the API response field that contains the resource ID
+id_field: SecurityGroupId
+
+# name_field: the API response field that contains the resource name
+name_field: SecurityGroupName
+
+# generate_info: if true, also generate an _info (facts) module (default: true)
+generate_info: true
+
+# author: module author line
+author: "Alibaba Cloud Magic Modules (@ansible-collections)"
+
+# doc_url: link shown in DOCUMENTATION seealso
+doc_url: "https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-createsecuritygroup"
+
+# endpoint_template: custom endpoint pattern (default: product-based auto-discovery)
+# Use this for products that don't follow standard <product>.<region>.aliyuncs.com
+endpoint_template: "ecs.{region}.aliyuncs.com"
+
+# ---- properties -----------------------------------------------------------
+# Each property maps to an Ansible module option AND an Alibaba Cloud API parameter.
+#
+# Field reference:
+#   type:          str | int | float | bool | list | dict (Ansible types)
+#   required:      true/false (default: false)
+#   description:   shown in module DOCUMENTATION
+#   default:       default value
+#   choices:       list of allowed values
+#   api_field:     PascalCase Alibaba Cloud API parameter name (default: auto-
+#                  converted from the snake_case property key via snake_to_pascal)
+#   updatable:     whether this field can be changed after creation (default: true)
+#   no_log:        hide value from logs, for sensitive fields (default: false)
+#   elements:      for type=list, the element type (str, dict, etc.)
+#   suboptions:    for type=list/dict with elements=dict, nested option spec
+#
+properties:
+  security_group_name:
+    type: str
+    required: false
+    description: The name of the security group.
+    api_field: SecurityGroupName
+    updatable: true
+
+  vpc_id:
+    type: str
+    required: false
+    description: The ID of the VPC in which to create the security group.
+    api_field: VpcId
+    updatable: false
+
+  description:
+    type: str
+    required: false
+    description: The description of the security group.
+    api_field: Description
+    updatable: true
+
+  security_group_type:
+    type: str
+    required: false
+    description: The type of the security group.
+    choices:
+      - normal
+      - enterprise
+    api_field: SecurityGroupType
+    updatable: false
+
+  tags:
+    type: list
+    required: false
+    description: Tags for the security group as a list of Key/Value dicts.
+    api_field: Tag
+    elements: dict
+    suboptions:
+      key:
+        type: str
+        required: true
+        description: Tag key.
+      value:
+        type: str
+        required: false
+        description: Tag value.

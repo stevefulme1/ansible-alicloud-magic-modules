@@ -1,0 +1,69 @@
+name: ElasticsearchInstance
+module_name: alicloud_elasticsearch_instance
+description: "Manage Elasticsearch instances"
+product: Elasticsearch
+api_version: "2017-06-13"
+create_action: createInstance
+update_action: UpdateInstance
+delete_action: DeleteInstance
+list_action: ListInstance
+id_field: InstanceId
+name_field: Description
+generate_info: true
+endpoint_template: "elasticsearch.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/es/developer-reference/api-elasticsearch-2017-06-13-createinstance"
+properties:
+  description:
+    type: str
+    required: false
+    description: "The description of the Elasticsearch instance"
+    api_field: Description
+    updatable: true
+  instance_category:
+    type: str
+    required: false
+    description: "The category of the instance"
+    api_field: InstanceCategory
+    updatable: false
+  version:
+    type: str
+    required: true
+    description: "The Elasticsearch version, e.g. 7.10, 8.x"
+    api_field: Version
+    updatable: false
+  zone_count:
+    type: int
+    required: false
+    description: "The number of availability zones"
+    api_field: ZoneCount
+    updatable: false
+  node_amount:
+    type: int
+    required: true
+    description: "The number of data nodes"
+    api_field: NodeAmount
+    updatable: true
+  node_spec:
+    type: str
+    required: true
+    description: "The specification of data nodes"
+    api_field: NodeSpec
+    updatable: true
+  data_node_disk_size:
+    type: int
+    required: true
+    description: "The disk size of each data node in GB"
+    api_field: DataNodeDiskSize
+    updatable: true
+  data_node_disk_type:
+    type: str
+    required: true
+    description: "The disk type of data nodes, valid values: cloud_ssd, cloud_efficiency"
+    api_field: DataNodeDiskType
+    updatable: false
+  network_config:
+    type: dict
+    required: true
+    description: "The network configuration including vpc_id, vswitch_id, and type"
+    api_field: NetworkConfig
+    updatable: false

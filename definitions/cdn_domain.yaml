@@ -1,0 +1,39 @@
+name: CdnDomain
+module_name: alicloud_cdn_domain
+description: "Manage CDN accelerated domain names"
+product: Cdn
+api_version: "2018-05-10"
+create_action: AddCdnDomain
+update_action: ModifyCdnDomain
+delete_action: DeleteCdnDomain
+describe_action: DescribeUserDomains
+id_field: DomainName
+name_field: DomainName
+generate_info: true
+endpoint_template: "cdn.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/cdn/developer-reference/api-cdn-2018-05-10-addcdndomain"
+properties:
+  domain_name:
+    type: str
+    required: true
+    description: "The domain name to add to CDN"
+    api_field: DomainName
+    updatable: false
+  cdn_type:
+    type: str
+    required: true
+    description: "The CDN business type, valid values: web, download, video"
+    api_field: CdnType
+    updatable: false
+  sources:
+    type: list
+    required: true
+    description: "The list of origin sources, each containing content, type, port, and priority"
+    api_field: Sources
+    updatable: true
+  scope:
+    type: str
+    required: false
+    description: "The acceleration scope, valid values: domestic, overseas, global"
+    api_field: Scope
+    updatable: true

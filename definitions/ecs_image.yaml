@@ -1,0 +1,66 @@
+name: EcsImage
+module_name: alicloud_ecs_image
+description: "Manage Alibaba Cloud ECS custom images"
+product: Ecs
+api_version: "2014-05-26"
+create_action: CreateImage
+update_action: ModifyImageAttribute
+delete_action: DeleteImage
+describe_action: DescribeImages
+list_action: DescribeImages
+id_field: ImageId
+name_field: ImageName
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-createimage"
+properties:
+  image_name:
+    type: str
+    required: false
+    description: "The name of the custom image"
+    api_field: ImageName
+    updatable: true
+  instance_id:
+    type: str
+    required: false
+    description: "The ID of the instance used to create the image"
+    api_field: InstanceId
+    updatable: false
+  snapshot_id:
+    type: str
+    required: false
+    description: "The ID of the snapshot used to create the image"
+    api_field: SnapshotId
+    updatable: false
+  description:
+    type: str
+    required: false
+    description: "The description of the image"
+    api_field: Description
+    updatable: true
+  image_family:
+    type: str
+    required: false
+    description: "The name of the image family"
+    api_field: ImageFamily
+    updatable: true
+  platform:
+    type: str
+    required: false
+    description: "The operating system platform"
+    api_field: Platform
+    updatable: false
+  architecture:
+    type: str
+    required: false
+    description: "The image architecture"
+    api_field: Architecture
+    updatable: false
+    choices:
+      - x86_64
+      - arm64
+  tags:
+    type: list
+    required: false
+    description: "The tags of the image as a list of dicts with Key and Value"
+    api_field: Tag
+    updatable: true

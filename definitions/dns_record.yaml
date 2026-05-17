@@ -1,0 +1,65 @@
+name: DnsRecord
+module_name: alicloud_dns_record
+description: "Manage Alibaba Cloud DNS records"
+product: Alidns
+api_version: "2015-01-09"
+create_action: AddDomainRecord
+update_action: UpdateDomainRecord
+delete_action: DeleteDomainRecord
+describe_action: DescribeDomainRecords
+list_action: DescribeDomainRecords
+id_field: RecordId
+endpoint_template: "alidns.{region}.aliyuncs.com"
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/dns/developer-reference/api-alidns-2015-01-09-adddomainrecord"
+properties:
+  domain_name:
+    type: str
+    required: true
+    description: "The domain name (e.g., example.com)"
+    api_field: DomainName
+    updatable: false
+  rr:
+    type: str
+    required: true
+    description: "The host record (e.g., www, @, *)"
+    api_field: RR
+    updatable: true
+  type:
+    type: str
+    required: true
+    description: "The type of the DNS record"
+    api_field: Type
+    updatable: true
+    choices:
+      - A
+      - AAAA
+      - CNAME
+      - MX
+      - TXT
+      - NS
+      - SRV
+  value:
+    type: str
+    required: true
+    description: "The record value"
+    api_field: Value
+    updatable: true
+  ttl:
+    type: int
+    required: false
+    description: "The TTL of the DNS record in seconds"
+    api_field: TTL
+    updatable: true
+  priority:
+    type: int
+    required: false
+    description: "The priority of the MX record"
+    api_field: Priority
+    updatable: true
+  line:
+    type: str
+    required: false
+    description: "The ISP line for the DNS record"
+    api_field: Line
+    updatable: true

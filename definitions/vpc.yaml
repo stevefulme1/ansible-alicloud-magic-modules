@@ -1,0 +1,45 @@
+name: Vpc
+module_name: alicloud_vpc
+description: "Manage Alibaba Cloud VPCs"
+product: Vpc
+api_version: "2016-04-28"
+create_action: CreateVpc
+update_action: ModifyVpcAttribute
+delete_action: DeleteVpc
+describe_action: DescribeVpcs
+list_action: DescribeVpcs
+id_field: VpcId
+name_field: VpcName
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/vpc/developer-reference/api-vpc-2016-04-28-createvpc"
+properties:
+  vpc_name:
+    type: str
+    required: false
+    description: "The name of the VPC"
+    api_field: VpcName
+    updatable: true
+  cidr_block:
+    type: str
+    required: false
+    description: "The CIDR block of the VPC (e.g., 172.16.0.0/12)"
+    api_field: CidrBlock
+    updatable: false
+  description:
+    type: str
+    required: false
+    description: "The description of the VPC"
+    api_field: Description
+    updatable: true
+  enable_ipv6:
+    type: bool
+    required: false
+    description: "Whether to enable IPv6 for the VPC"
+    api_field: EnableIpv6
+    updatable: false
+  tags:
+    type: list
+    required: false
+    description: "The tags of the VPC as a list of dicts with Key and Value"
+    api_field: Tag
+    updatable: true

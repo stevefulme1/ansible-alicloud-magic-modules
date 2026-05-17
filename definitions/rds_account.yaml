@@ -1,0 +1,48 @@
+name: RdsAccount
+module_name: alicloud_rds_account
+description: "Manage Alibaba Cloud RDS database accounts"
+product: Rds
+api_version: "2014-08-15"
+create_action: CreateAccount
+update_action: ModifyAccountDescription
+delete_action: DeleteAccount
+describe_action: DescribeAccounts
+list_action: DescribeAccounts
+name_field: AccountName
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/rds/developer-reference/api-rds-2014-08-15-createaccount"
+properties:
+  db_instance_id:
+    type: str
+    required: true
+    description: "The ID of the RDS instance"
+    api_field: DBInstanceId
+    updatable: false
+  account_name:
+    type: str
+    required: true
+    description: "The name of the database account"
+    api_field: AccountName
+    updatable: false
+  account_password:
+    type: str
+    required: true
+    description: "The password of the database account"
+    api_field: AccountPassword
+    updatable: false
+    no_log: true
+  account_type:
+    type: str
+    required: false
+    description: "The type of the database account"
+    api_field: AccountType
+    updatable: false
+    choices:
+      - Normal
+      - Super
+  account_description:
+    type: str
+    required: false
+    description: "The description of the database account"
+    api_field: AccountDescription
+    updatable: true

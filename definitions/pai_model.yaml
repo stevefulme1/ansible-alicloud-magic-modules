@@ -1,0 +1,63 @@
+name: PaiModel
+module_name: alicloud_pai_model
+description: "Manage PAI model registry entries"
+product: AIWorkSpace
+api_version: "2021-02-04"
+create_action: CreateModel
+update_action: UpdateModel
+delete_action: DeleteModel
+list_action: ListModels
+id_field: ModelId
+name_field: ModelName
+generate_info: true
+endpoint_template: "aiworkspace.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/pai/developer-reference/api-aiworkspace-2021-02-04-createmodel"
+properties:
+  model_name:
+    type: str
+    required: true
+    description: "The name of the model"
+    api_field: ModelName
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the model"
+    api_field: Description
+    updatable: true
+  workspace_id:
+    type: str
+    required: true
+    description: "The ID of the workspace to which the model belongs"
+    api_field: WorkspaceId
+    updatable: false
+  model_type:
+    type: str
+    required: false
+    description: "The type of the model"
+    api_field: ModelType
+    updatable: true
+  origin:
+    type: str
+    required: false
+    description: "The origin of the model"
+    api_field: Origin
+    updatable: true
+  domain:
+    type: str
+    required: false
+    description: "The domain of the model, e.g. NLP, CV, Audio"
+    api_field: Domain
+    updatable: true
+  task:
+    type: str
+    required: false
+    description: "The task the model is designed for, e.g. text-generation, image-classification"
+    api_field: Task
+    updatable: true
+  labels:
+    type: list
+    required: false
+    description: "The labels associated with the model"
+    api_field: Labels
+    updatable: true

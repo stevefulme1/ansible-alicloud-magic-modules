@@ -1,0 +1,65 @@
+name: KmsKey
+module_name: alicloud_kms_key
+description: "Manage Alibaba Cloud KMS keys"
+product: Kms
+api_version: "2016-01-20"
+create_action: CreateKey
+delete_action: ScheduleKeyDeletion
+describe_action: DescribeKey
+list_action: ListKeys
+id_field: KeyId
+endpoint_template: "kms.{region}.aliyuncs.com"
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/kms/developer-reference/api-kms-2016-01-20-createkey"
+properties:
+  description:
+    type: str
+    required: false
+    description: "The description of the CMK"
+    api_field: Description
+    updatable: false
+  key_usage:
+    type: str
+    required: false
+    description: "The usage of the CMK"
+    api_field: KeyUsage
+    updatable: false
+    choices:
+      - ENCRYPT/DECRYPT
+      - SIGN/VERIFY
+  key_spec:
+    type: str
+    required: false
+    description: "The type of the CMK"
+    api_field: KeySpec
+    updatable: false
+    choices:
+      - Aliyun_AES_256
+      - RSA_2048
+      - EC_P256
+      - EC_P256K
+      - EC_SM2
+  origin:
+    type: str
+    required: false
+    description: "The source of the key material"
+    api_field: Origin
+    updatable: false
+    choices:
+      - Aliyun_KMS
+      - EXTERNAL
+  protection_level:
+    type: str
+    required: false
+    description: "The protection level of the CMK"
+    api_field: ProtectionLevel
+    updatable: false
+    choices:
+      - SOFTWARE
+      - HSM
+  pending_window_in_days:
+    type: int
+    required: false
+    description: "The waiting period before key deletion (7-366 days)"
+    api_field: PendingWindowInDays
+    updatable: false

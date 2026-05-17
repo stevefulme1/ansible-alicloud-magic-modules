@@ -1,0 +1,88 @@
+name: EcsSecurityGroupRule
+module_name: alicloud_ecs_security_group_rule
+description: "Manage Alibaba Cloud ECS security group rules"
+product: Ecs
+api_version: "2014-05-26"
+create_action: AuthorizeSecurityGroup
+delete_action: RevokeSecurityGroup
+describe_action: DescribeSecurityGroupAttribute
+list_action: DescribeSecurityGroupAttribute
+id_field: SecurityGroupRuleId
+generate_info: true
+doc_url: "https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-authorizesecuritygroup"
+properties:
+  security_group_id:
+    type: str
+    required: true
+    description: "The ID of the security group"
+    api_field: SecurityGroupId
+    updatable: false
+  ip_protocol:
+    type: str
+    required: true
+    description: "The transport layer protocol"
+    api_field: IpProtocol
+    updatable: false
+    choices:
+      - tcp
+      - udp
+      - icmp
+      - gre
+      - all
+  port_range:
+    type: str
+    required: true
+    description: "The range of destination ports (e.g., 80/80, 1/65535)"
+    api_field: PortRange
+    updatable: false
+  source_cidr_ip:
+    type: str
+    required: false
+    description: "The source IPv4 CIDR block for ingress rules"
+    api_field: SourceCidrIp
+    updatable: false
+  dest_cidr_ip:
+    type: str
+    required: false
+    description: "The destination IPv4 CIDR block for egress rules"
+    api_field: DestCidrIp
+    updatable: false
+  nic_type:
+    type: str
+    required: false
+    description: "The NIC type"
+    api_field: NicType
+    updatable: false
+    choices:
+      - internet
+      - intranet
+  policy:
+    type: str
+    required: false
+    description: "The access control policy"
+    api_field: Policy
+    updatable: false
+    choices:
+      - accept
+      - drop
+  priority:
+    type: int
+    required: false
+    description: "The priority of the rule (1-100)"
+    api_field: Priority
+    updatable: false
+  direction:
+    type: str
+    required: false
+    description: "The direction of the rule"
+    api_field: Direction
+    updatable: false
+    choices:
+      - ingress
+      - egress
+  description:
+    type: str
+    required: false
+    description: "The description of the security group rule"
+    api_field: Description
+    updatable: false

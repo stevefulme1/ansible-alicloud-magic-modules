@@ -1,0 +1,81 @@
+name: AdbCluster
+module_name: alicloud_adb_cluster
+description: "Manage AnalyticDB (ADB) clusters for OLAP workloads"
+product: Adb
+api_version: "2019-03-15"
+create_action: CreateDBCluster
+update_action: ModifyDBCluster
+delete_action: DeleteDBCluster
+describe_action: DescribeDBClusters
+id_field: DBClusterId
+name_field: DBClusterDescription
+generate_info: true
+endpoint_template: "adb.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/analyticdb-for-mysql/developer-reference/api-adb-2019-03-15-createdbcluster"
+properties:
+  db_cluster_description:
+    type: str
+    required: false
+    description: "The description of the AnalyticDB cluster"
+    api_field: DBClusterDescription
+    updatable: true
+  db_cluster_category:
+    type: str
+    required: true
+    description: "The category of the cluster, valid values: Cluster, MixedStorage"
+    api_field: DBClusterCategory
+    updatable: false
+  db_cluster_class:
+    type: str
+    required: false
+    description: "The specification of the cluster"
+    api_field: DBClusterClass
+    updatable: true
+  db_node_count:
+    type: int
+    required: false
+    description: "The number of node groups"
+    api_field: DBNodeCount
+    updatable: true
+  db_node_storage:
+    type: int
+    required: false
+    description: "The storage capacity per node group in GB"
+    api_field: DBNodeStorage
+    updatable: true
+  vpc_id:
+    type: str
+    required: true
+    description: "The ID of the VPC"
+    api_field: VPCId
+    updatable: false
+  vswitch_id:
+    type: str
+    required: true
+    description: "The ID of the vSwitch"
+    api_field: VSwitchId
+    updatable: false
+  zone_id:
+    type: str
+    required: true
+    description: "The ID of the zone"
+    api_field: ZoneId
+    updatable: false
+  pay_type:
+    type: str
+    required: true
+    description: "The billing method, valid values: PostPaid, PrePaid"
+    api_field: PayType
+    updatable: false
+  compute_resource:
+    type: str
+    required: false
+    description: "The computing resources of the cluster"
+    api_field: ComputeResource
+    updatable: true
+  storage_resource:
+    type: str
+    required: false
+    description: "The storage resources of the cluster"
+    api_field: StorageResource
+    updatable: true

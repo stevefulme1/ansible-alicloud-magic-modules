@@ -1,0 +1,57 @@
+name: ActiontrailTrail
+module_name: alicloud_actiontrail_trail
+description: "Manage ActionTrail audit trails for API operation logging"
+product: Actiontrail
+api_version: "2020-07-06"
+create_action: CreateTrail
+update_action: UpdateTrail
+delete_action: DeleteTrail
+describe_action: DescribeTrails
+id_field: Name
+name_field: Name
+generate_info: true
+endpoint_template: "actiontrail.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/actiontrail/developer-reference/api-actiontrail-2020-07-06-createtrail"
+properties:
+  trail_name:
+    type: str
+    required: true
+    description: "The name of the trail"
+    api_field: Name
+    updatable: false
+  oss_bucket_name:
+    type: str
+    required: false
+    description: "The name of the OSS bucket for storing trail logs"
+    api_field: OssBucketName
+    updatable: true
+  oss_key_prefix:
+    type: str
+    required: false
+    description: "The prefix of the log files in the OSS bucket"
+    api_field: OssKeyPrefix
+    updatable: true
+  sls_project_arn:
+    type: str
+    required: false
+    description: "The ARN of the SLS project for delivering logs"
+    api_field: SlsProjectArn
+    updatable: true
+  sls_write_role_arn:
+    type: str
+    required: false
+    description: "The ARN of the RAM role for writing to SLS"
+    api_field: SlsWriteRoleArn
+    updatable: true
+  trail_region:
+    type: str
+    required: false
+    description: "The region for the trail, use 'All' for all regions or a specific region ID"
+    api_field: TrailRegion
+    updatable: true
+  is_organization_trail:
+    type: bool
+    required: false
+    description: "Whether the trail is a multi-account organization trail"
+    api_field: IsOrganizationTrail
+    updatable: false
