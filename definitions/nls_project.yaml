@@ -1,0 +1,37 @@
+name: NlsProject
+module_name: alicloud_nls_project
+description: "Manage Intelligent Speech (NLS) projects"
+product: nls
+api_version: "2019-02-14"
+create_action: CreateProject
+update_action: ModifyProject
+delete_action: DeleteProject
+list_action: ListProjects
+id_field: ProjectId
+name_field: ProjectName
+generate_info: true
+endpoint_template: "nls-meta.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/intelligent-speech-interaction/developer-reference/api-nls-2019-02-14-createproject"
+properties:
+  project_name:
+    type: str
+    required: true
+    description: "The name of the NLS project"
+    api_field: ProjectName
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the NLS project"
+    api_field: Description
+    updatable: true
+  project_type:
+    type: str
+    required: true
+    description: "The type of the speech project"
+    api_field: ProjectType
+    updatable: false
+    choices:
+      - asr
+      - tts
+      - dialog

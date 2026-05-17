@@ -1,0 +1,55 @@
+name: BailianIndex
+module_name: alicloud_bailian_index
+description: "Manage Bailian knowledge base document indices"
+product: bailian
+api_version: "2023-12-29"
+create_action: CreateIndex
+delete_action: DeleteIndex
+list_action: ListIndices
+id_field: IndexId
+generate_info: true
+endpoint_template: "bailian.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex"
+properties:
+  knowledge_base_id:
+    type: str
+    required: true
+    description: "The ID of the knowledge base to index"
+    api_field: KnowledgeBaseId
+    updatable: false
+  structured_type:
+    type: str
+    required: false
+    description: "The structured type of the index"
+    api_field: StructuredType
+    updatable: false
+  source_type:
+    type: str
+    required: false
+    description: "The source type for the index data"
+    api_field: SourceType
+    updatable: false
+    choices:
+      - OSS
+      - PrivateKnowledge
+  source:
+    type: dict
+    required: false
+    description: "The source configuration for the index"
+    api_field: Source
+    updatable: false
+    suboptions:
+      bucket:
+        type: str
+        required: false
+        description: "The OSS bucket name"
+      prefix:
+        type: str
+        required: false
+        description: "The OSS object key prefix"
+  description:
+    type: str
+    required: false
+    description: "The description of the index"
+    api_field: Description
+    updatable: false

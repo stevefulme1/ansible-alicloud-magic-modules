@@ -1,0 +1,33 @@
+name: ChatbotKnowledge
+module_name: alicloud_chatbot_knowledge
+description: "Manage chatbot knowledge categories"
+product: Chatbot
+api_version: "2022-04-08"
+create_action: CreateCategory
+update_action: UpdateCategory
+delete_action: DeleteCategory
+list_action: ListCategories
+id_field: CategoryId
+name_field: Name
+generate_info: true
+endpoint_template: "chatbot.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/intelligent-robot/developer-reference/api-chatbot-2022-04-08-createcategory"
+properties:
+  category_name:
+    type: str
+    required: true
+    description: "The name of the knowledge category"
+    api_field: Name
+    updatable: true
+  parent_category_id:
+    type: str
+    required: false
+    description: "The ID of the parent category"
+    api_field: ParentCategoryId
+    updatable: false
+  instance_id:
+    type: str
+    required: true
+    description: "The ID of the chatbot instance"
+    api_field: InstanceId
+    updatable: false

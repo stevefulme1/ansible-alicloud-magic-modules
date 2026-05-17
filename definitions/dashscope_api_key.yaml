@@ -1,0 +1,39 @@
+name: DashScopeApiKey
+module_name: alicloud_dashscope_api_key
+description: "Manage DashScope API keys for LLM inference"
+product: DashScope
+api_version: "2023-06-01"
+create_action: CreateApiKey
+delete_action: DeleteApiKey
+list_action: ListApiKeys
+id_field: ApiKeyId
+name_field: ApiKeyName
+generate_info: true
+endpoint_template: "dashscope.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-dashscope-2023-06-01-createapikey"
+properties:
+  api_key_name:
+    type: str
+    required: true
+    description: "The name of the API key"
+    api_field: ApiKeyName
+    updatable: false
+  description:
+    type: str
+    required: false
+    description: "The description of the API key"
+    api_field: Description
+    updatable: false
+  model_ids:
+    type: list
+    required: false
+    description: "List of model IDs the key is allowed to access"
+    api_field: ModelIds
+    updatable: false
+    elements: str
+  expire_time:
+    type: str
+    required: false
+    description: "The expiration time in ISO 8601 format"
+    api_field: ExpireTime
+    updatable: false

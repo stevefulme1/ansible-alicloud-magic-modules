@@ -1,0 +1,49 @@
+name: BailianApp
+module_name: alicloud_bailian_app
+description: "Manage Bailian Model Studio LLM applications"
+product: bailian
+api_version: "2023-12-29"
+create_action: CreateApp
+update_action: UpdateApp
+delete_action: DeleteApp
+list_action: ListApps
+id_field: AppId
+name_field: Name
+generate_info: true
+endpoint_template: "bailian.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createapp"
+properties:
+  app_name:
+    type: str
+    required: true
+    description: "The name of the Bailian application"
+    api_field: Name
+    updatable: true
+  model_id:
+    type: str
+    required: false
+    description: "The ID of the base model for the application"
+    api_field: ModelId
+    updatable: true
+  prompt_template:
+    type: str
+    required: false
+    description: "The prompt template for the application"
+    api_field: PromptTemplate
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the application"
+    api_field: Description
+    updatable: true
+  app_type:
+    type: str
+    required: false
+    description: "The type of the application"
+    api_field: AppType
+    updatable: false
+    choices:
+      - completion
+      - chat
+      - agent

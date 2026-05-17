@@ -1,0 +1,49 @@
+name: ViapiService
+module_name: alicloud_viapi_service
+description: "Manage Vision Intelligence custom vision services"
+product: viapi
+api_version: "2023-01-17"
+create_action: CreateService
+update_action: UpdateService
+delete_action: DeleteService
+list_action: ListServices
+id_field: ServiceId
+name_field: ServiceName
+generate_info: true
+endpoint_template: "viapi.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/viapi/developer-reference/api-viapi-2023-01-17-createservice"
+properties:
+  service_name:
+    type: str
+    required: true
+    description: "The name of the vision service"
+    api_field: ServiceName
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the vision service"
+    api_field: Description
+    updatable: true
+  service_type:
+    type: str
+    required: true
+    description: "The type of vision AI service"
+    api_field: ServiceType
+    updatable: false
+    choices:
+      - ImageClassification
+      - ObjectDetection
+      - ImageSegmentation
+  model_id:
+    type: str
+    required: false
+    description: "The ID of the trained model to deploy"
+    api_field: ModelId
+    updatable: true
+  training_dataset_id:
+    type: str
+    required: false
+    description: "The ID of the training dataset"
+    api_field: TrainingDatasetId
+    updatable: false

@@ -1,0 +1,38 @@
+name: AIEarthProject
+module_name: alicloud_aiearth_project
+description: "Manage AI Earth geospatial analysis projects"
+product: AIEarth
+api_version: "2022-01-01"
+create_action: CreateProject
+update_action: UpdateProject
+delete_action: DeleteProject
+list_action: ListProjects
+id_field: ProjectId
+name_field: ProjectName
+generate_info: true
+endpoint_template: "aiearth.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/ai-earth/developer-reference/api-aiearth-2022-01-01-createproject"
+properties:
+  project_name:
+    type: str
+    required: true
+    description: "The name of the AI Earth project"
+    api_field: ProjectName
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the project"
+    api_field: Description
+    updatable: true
+  project_type:
+    type: str
+    required: true
+    description: "The type of geospatial AI analysis"
+    api_field: ProjectType
+    updatable: false
+    choices:
+      - ChangeDetection
+      - ObjectDetection
+      - LandClassification
+      - Superresolution

@@ -1,0 +1,40 @@
+name: ImageSearchInstance
+module_name: alicloud_imagesearch_instance
+description: "Manage Image Search instances"
+product: ImageSearch
+api_version: "2020-12-14"
+create_action: CreateInstance
+update_action: ModifyInstance
+delete_action: DeleteInstance
+describe_action: DescribeInstances
+list_action: DescribeInstances
+id_field: InstanceId
+name_field: InstanceName
+generate_info: true
+endpoint_template: "imagesearch.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/image-search/developer-reference/api-imagesearch-2020-12-14-createinstance"
+properties:
+  instance_name:
+    type: str
+    required: true
+    description: "The name of the Image Search instance"
+    api_field: InstanceName
+    updatable: true
+  instance_type:
+    type: str
+    required: true
+    description: "The type of the Image Search instance"
+    api_field: InstanceType
+    updatable: false
+    choices:
+      - Commodity
+      - Generic
+  service_type:
+    type: str
+    required: false
+    description: "The service type for search behavior"
+    api_field: ServiceType
+    updatable: false
+    choices:
+      - Image
+      - Product

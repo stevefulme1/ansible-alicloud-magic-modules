@@ -1,0 +1,54 @@
+name: BailianKnowledgeBase
+module_name: alicloud_bailian_knowledge_base
+description: "Manage Bailian knowledge bases for RAG applications"
+product: bailian
+api_version: "2023-12-29"
+create_action: CreateKnowledgeBase
+update_action: UpdateKnowledgeBase
+delete_action: DeleteKnowledgeBase
+list_action: ListKnowledgeBases
+id_field: KnowledgeBaseId
+name_field: Name
+generate_info: true
+endpoint_template: "bailian.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createknowledgebase"
+properties:
+  knowledge_base_name:
+    type: str
+    required: true
+    description: "The name of the knowledge base"
+    api_field: Name
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the knowledge base"
+    api_field: Description
+    updatable: true
+  embedding_model_name:
+    type: str
+    required: false
+    description: "The embedding model used for vectorization"
+    api_field: EmbeddingModelName
+    updatable: false
+  vector_store_type:
+    type: str
+    required: false
+    description: "The type of vector store backend"
+    api_field: VectorStoreType
+    updatable: false
+    choices:
+      - ADB
+      - Hologres
+      - ElasticSearch
+      - OpenSearch
+  chunk_strategy:
+    type: str
+    required: false
+    description: "The document chunking strategy"
+    api_field: ChunkStrategy
+    updatable: true
+    choices:
+      - FixedLength
+      - Sentence
+      - Paragraph

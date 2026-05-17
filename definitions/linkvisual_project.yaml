@@ -1,0 +1,36 @@
+name: LinkVisualProject
+module_name: alicloud_linkvisual_project
+description: "Manage LinkVisual edge AI video projects"
+product: Linkvisual
+api_version: "2018-01-20"
+create_action: CreateProject
+update_action: UpdateProject
+delete_action: DeleteProject
+list_action: QueryProjects
+id_field: ProjectId
+name_field: ProjectName
+generate_info: true
+endpoint_template: "linkvisual.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/linkvisual/developer-reference/api-linkvisual-2018-01-20-createproject"
+properties:
+  project_name:
+    type: str
+    required: true
+    description: "The name of the LinkVisual project"
+    api_field: ProjectName
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the project"
+    api_field: Description
+    updatable: true
+  project_type:
+    type: str
+    required: false
+    description: "The type of edge video project"
+    api_field: ProjectType
+    updatable: false
+    choices:
+      - IPC
+      - NVR

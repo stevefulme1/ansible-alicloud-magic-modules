@@ -1,0 +1,62 @@
+name: BailianFineTuneJob
+module_name: alicloud_bailian_fine_tune_job
+description: "Manage Bailian model fine-tuning jobs"
+product: bailian
+api_version: "2023-12-29"
+create_action: CreateFineTuneJob
+describe_action: GetFineTuneJob
+list_action: ListFineTuneJobs
+id_field: JobId
+name_field: JobName
+generate_info: true
+endpoint_template: "bailian.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createfinetune"
+properties:
+  job_name:
+    type: str
+    required: true
+    description: "The name of the fine-tuning job"
+    api_field: JobName
+    updatable: false
+  base_model:
+    type: str
+    required: true
+    description: "The base model to fine-tune"
+    api_field: BaseModel
+    updatable: false
+  training_files:
+    type: list
+    required: true
+    description: "List of training file IDs"
+    api_field: TrainingFiles
+    updatable: false
+    elements: str
+  hyper_parameters:
+    type: dict
+    required: false
+    description: "Hyperparameters for fine-tuning"
+    api_field: HyperParameters
+    updatable: false
+    suboptions:
+      epochs:
+        type: int
+        required: false
+        description: "Number of training epochs"
+      learning_rate:
+        type: float
+        required: false
+        description: "Learning rate for training"
+      batch_size:
+        type: int
+        required: false
+        description: "Training batch size"
+  training_type:
+    type: str
+    required: false
+    description: "The type of fine-tuning to perform"
+    api_field: TrainingType
+    updatable: false
+    choices:
+      - sft
+      - lora
+      - qlora

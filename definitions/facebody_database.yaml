@@ -1,0 +1,26 @@
+name: FacebodyDatabase
+module_name: alicloud_facebody_database
+description: "Manage face recognition databases"
+product: facebody
+api_version: "2019-12-30"
+create_action: CreateFaceDb
+delete_action: DeleteFaceDb
+list_action: ListFaceDbs
+id_field: DbName
+name_field: DbName
+generate_info: true
+endpoint_template: "facebody.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/body-recognition/developer-reference/api-facebody-2019-12-30-createfacedb"
+properties:
+  database_name:
+    type: str
+    required: true
+    description: "The name of the face recognition database"
+    api_field: Name
+    updatable: false
+  description:
+    type: str
+    required: false
+    description: "The description of the face database"
+    api_field: Description
+    updatable: false

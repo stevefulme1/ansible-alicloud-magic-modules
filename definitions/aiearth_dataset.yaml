@@ -1,0 +1,56 @@
+name: AIEarthDataset
+module_name: alicloud_aiearth_dataset
+description: "Manage AI Earth geospatial datasets"
+product: AIEarth
+api_version: "2022-01-01"
+create_action: CreateDataset
+update_action: UpdateDataset
+delete_action: DeleteDataset
+list_action: ListDatasets
+id_field: DatasetId
+name_field: DatasetName
+generate_info: true
+endpoint_template: "aiearth.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/ai-earth/developer-reference/api-aiearth-2022-01-01-createdataset"
+properties:
+  dataset_name:
+    type: str
+    required: true
+    description: "The name of the dataset"
+    api_field: DatasetName
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the dataset"
+    api_field: Description
+    updatable: true
+  dataset_type:
+    type: str
+    required: true
+    description: "The type of geospatial data"
+    api_field: DatasetType
+    updatable: false
+    choices:
+      - Raster
+      - Vector
+  source_type:
+    type: str
+    required: false
+    description: "The storage source type for the dataset"
+    api_field: SourceType
+    updatable: false
+    choices:
+      - OSS
+  source_path:
+    type: str
+    required: false
+    description: "The OSS path to the source data"
+    api_field: SourcePath
+    updatable: false
+  project_id:
+    type: str
+    required: true
+    description: "The ID of the parent AI Earth project"
+    api_field: ProjectId
+    updatable: false

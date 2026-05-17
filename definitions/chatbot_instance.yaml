@@ -1,0 +1,47 @@
+name: ChatbotInstance
+module_name: alicloud_chatbot_instance
+description: "Manage Intelligent Robot chatbot instances"
+product: Chatbot
+api_version: "2022-04-08"
+create_action: CreateInstance
+update_action: UpdateInstance
+delete_action: DeleteInstance
+list_action: ListInstances
+id_field: InstanceId
+name_field: InstanceName
+generate_info: true
+endpoint_template: "chatbot.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/intelligent-robot/developer-reference/api-chatbot-2022-04-08-createinstance"
+properties:
+  instance_name:
+    type: str
+    required: true
+    description: "The name of the chatbot instance"
+    api_field: Name
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the chatbot instance"
+    api_field: Description
+    updatable: true
+  language_code:
+    type: str
+    required: false
+    description: "The language code for the chatbot"
+    api_field: LanguageCode
+    updatable: false
+    choices:
+      - zh-cn
+      - en-us
+      - ja-jp
+  robot_type:
+    type: str
+    required: false
+    description: "The type of chatbot"
+    api_field: RobotType
+    updatable: false
+    choices:
+      - FAQ
+      - Task
+      - Chat

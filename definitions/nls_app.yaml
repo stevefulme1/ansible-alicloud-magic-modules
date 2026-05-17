@@ -1,0 +1,55 @@
+name: NlsApp
+module_name: alicloud_nls_app
+description: "Manage Intelligent Speech (NLS) applications"
+product: nls
+api_version: "2019-02-14"
+create_action: CreateApp
+update_action: ModifyApp
+delete_action: DeleteApp
+list_action: ListApps
+id_field: AppId
+name_field: AppName
+generate_info: true
+endpoint_template: "nls-meta.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/intelligent-speech-interaction/developer-reference/api-nls-2019-02-14-createapp"
+properties:
+  app_name:
+    type: str
+    required: true
+    description: "The name of the NLS application"
+    api_field: AppName
+    updatable: true
+  project_id:
+    type: str
+    required: true
+    description: "The ID of the parent NLS project"
+    api_field: ProjectId
+    updatable: false
+  description:
+    type: str
+    required: false
+    description: "The description of the NLS application"
+    api_field: Description
+    updatable: true
+  scenario:
+    type: str
+    required: false
+    description: "The usage scenario for the application"
+    api_field: Scenario
+    updatable: true
+    choices:
+      - chat
+      - customer_service
+      - education
+  asr_model_id:
+    type: str
+    required: false
+    description: "The ASR model ID for speech recognition"
+    api_field: AsrModelId
+    updatable: true
+  tts_voice:
+    type: str
+    required: false
+    description: "The TTS voice identifier for speech synthesis"
+    api_field: TtsVoice
+    updatable: true

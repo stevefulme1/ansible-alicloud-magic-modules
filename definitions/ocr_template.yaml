@@ -1,0 +1,51 @@
+name: OcrTemplate
+module_name: alicloud_ocr_template
+description: "Manage custom OCR recognition templates"
+product: ocr-api
+api_version: "2021-07-07"
+create_action: CreateTemplate
+update_action: UpdateTemplate
+delete_action: DeleteTemplate
+list_action: ListTemplates
+id_field: TemplateId
+name_field: TemplateName
+generate_info: true
+endpoint_template: "ocr-api.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/ocr/developer-reference/api-ocr-api-2021-07-07-createtemplate"
+properties:
+  template_name:
+    type: str
+    required: true
+    description: "The name of the OCR template"
+    api_field: TemplateName
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the OCR template"
+    api_field: Description
+    updatable: true
+  template_type:
+    type: str
+    required: false
+    description: "The type of the OCR template"
+    api_field: TemplateType
+    updatable: false
+    choices:
+      - CustomOCR
+  recognition_fields:
+    type: list
+    required: true
+    description: "List of fields to recognize in the template"
+    api_field: RecognitionFields
+    updatable: true
+    elements: dict
+    suboptions:
+      field_name:
+        type: str
+        required: true
+        description: "The name of the recognition field"
+      field_type:
+        type: str
+        required: true
+        description: "The data type of the recognition field"

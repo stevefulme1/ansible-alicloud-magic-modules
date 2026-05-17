@@ -1,0 +1,46 @@
+name: BailianPromptTemplate
+module_name: alicloud_bailian_prompt_template
+description: "Manage Bailian prompt templates for LLM applications"
+product: bailian
+api_version: "2023-12-29"
+create_action: CreatePromptTemplate
+update_action: UpdatePromptTemplate
+delete_action: DeletePromptTemplate
+list_action: ListPromptTemplates
+id_field: TemplateId
+name_field: Name
+generate_info: true
+endpoint_template: "bailian.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createprompttemplate"
+properties:
+  template_name:
+    type: str
+    required: true
+    description: "The name of the prompt template"
+    api_field: Name
+    updatable: true
+  description:
+    type: str
+    required: false
+    description: "The description of the prompt template"
+    api_field: Description
+    updatable: true
+  content:
+    type: str
+    required: true
+    description: "The content of the prompt template"
+    api_field: Content
+    updatable: true
+  variables:
+    type: list
+    required: false
+    description: "List of variable names used in the template"
+    api_field: Variables
+    updatable: true
+    elements: str
+  model_id:
+    type: str
+    required: false
+    description: "The model ID associated with this template"
+    api_field: ModelId
+    updatable: true

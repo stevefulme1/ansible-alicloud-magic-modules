@@ -1,0 +1,41 @@
+name: AlimtProject
+module_name: alicloud_alimt_project
+description: "Manage Machine Translation document translation tasks"
+product: alimt
+api_version: "2018-10-12"
+create_action: CreateDocTranslateTask
+describe_action: GetDocTranslateTask
+id_field: TaskId
+generate_info: false
+endpoint_template: "mt.{region}.aliyuncs.com"
+doc_url: "https://www.alibabacloud.com/help/en/machine-translation/developer-reference/api-alimt-2018-10-12-createdoctranslatetask"
+properties:
+  source_language:
+    type: str
+    required: true
+    description: "The source language code (e.g. en, zh, ja)"
+    api_field: SourceLanguage
+    updatable: false
+  target_language:
+    type: str
+    required: true
+    description: "The target language code (e.g. en, zh, ja)"
+    api_field: TargetLanguage
+    updatable: false
+  file_url:
+    type: str
+    required: true
+    description: "The URL of the document file to translate"
+    api_field: FileUrl
+    updatable: false
+  scene:
+    type: str
+    required: false
+    description: "The translation scene for domain optimization"
+    api_field: Scene
+    updatable: false
+    choices:
+      - general
+      - title
+      - description
+      - communication
