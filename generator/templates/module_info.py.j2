@@ -345,7 +345,6 @@ def main():
 
         results[result_key] = [format_response(item) for item in all_items]
 {% endif %}
-
 {% elif resource.describe_action %}
 {# --- Only describe action (no pagination) --- #}
         params = {'RegionId': module.params['region']}
@@ -369,7 +368,6 @@ def main():
             results[result_key] = [format_response(item) for item in items]
         elif '{{ resource.name }}' in body:
             results[result_key] = [format_response(body['{{ resource.name }}'])]
-
 {% elif resource.list_action %}
 {# --- Only list action (with pagination) --- #}
         params = {'RegionId': module.params['region']}
@@ -405,7 +403,6 @@ def main():
 
         results[result_key] = [format_response(item) for item in all_items]
 {% endif %}
-
     except Exception as exc:
         if _is_not_found(exc):
             # Resource not found is not an error for info modules
